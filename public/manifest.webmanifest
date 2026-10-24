@@ -1,0 +1,9 @@
+{
+  "name": "Horigine Staffing",
+  "short_name": "Horigine",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#10131a",
+  "theme_color": "#10131a",
+  "description": "Technology services and technical staffing"
+}

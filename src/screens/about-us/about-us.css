@@ -1,0 +1,216 @@
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(44px, 6vw, 72px);
+  padding: 34px 0 72px;
+}
+.about-content > section {
+  width: min(100% - 56px, 1200px);
+  margin-inline: auto;
+}
+.about-content .scroll-reveal > section {
+  width: min(100% - 56px, 1200px);
+  margin-inline: auto;
+}
+.about-panel {
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background:
+    radial-gradient(
+      ellipse at 10% 10%,
+      rgba(255, 255, 255, 0.035),
+      transparent 50%
+    ),
+    linear-gradient(130deg, rgba(28, 32, 40, 0.88), rgba(21, 24, 31, 0.94));
+  box-shadow: 0 22px 55px #0002;
+}
+.about-overview {
+  text-align: center;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #c4c5d9;
+  margin-bottom: 24px;
+}
+.about-overview h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  margin: 0 auto;
+  max-width: 900px;
+}
+.about-overview p {
+  max-width: 760px;
+  margin: 22px auto 0;
+  color: #c4c5d9;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.about-dual {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.about-dual article {
+  padding: 28px;
+}
+.about-dual h2 {
+  font-size: 18px;
+  margin: 18px 0 10px;
+}
+.about-dual p,
+.about-story p,
+.belief-card p {
+  color: #b9c1d2;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+.eyebrow.orange {
+  color: #ffb04b;
+  border-color: #ff970f33;
+  background: #ff970f0e;
+}
+.about-story-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 44px;
+  align-items: center;
+}
+.about-story h2 {
+  font-size: 26px;
+  margin: 0 0 14px;
+}
+.about-story p {
+  font-size: 14px;
+}
+.about-divider {
+  width: 48px;
+  height: 3px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #00ced1, #ff970f);
+  margin-bottom: 22px;
+}
+.about-story img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #ffffff24;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.about-story img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.35);
+}
+.belief-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.belief-card {
+  padding: 24px;
+}
+.belief-card h3 {
+  font-size: 14px;
+  margin: 0 0 14px;
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  padding: 26px;
+}
+.about-stat {
+  text-align: center;
+}
+.about-stat strong {
+  display: block;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+}
+.about-stat span {
+  display: block;
+  color: #b9c1d2;
+  font-size: 9px;
+  letter-spacing: 0.07em;
+  margin-top: 5px;
+}
+.about-contact {
+  text-align: center;
+}
+.about-contact h2 {
+  max-width: 850px;
+  font-size: clamp(1.4rem, 2.7vw, 2.1rem);
+  line-height: 1.35;
+  margin: 0 auto 26px;
+}
+.about-contact .gradient-button {
+  margin: auto;
+}
+@media (max-width: 700px) {
+  .about-content {
+    gap: 38px;
+    padding: 24px 0 56px;
+  }
+  .about-content > section {
+    width: calc(100% - 32px);
+  }
+  .about-content .scroll-reveal > section {
+    width: calc(100% - 32px);
+  }
+  .about-dual,
+  .about-story-layout,
+  .belief-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-story img {
+    height: 230px;
+  }
+  .about-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .about-stat:last-child {
+    grid-column: 1/-1;
+  }
+}
+.about-content .scroll-reveal {
+  width: 100%;
+}
+.about-content .about-dual {
+  width: min(100% - 56px, 1200px);
+  margin-inline: auto;
+}
+.about-content .belief-card,
+.about-content .about-dual article,
+.about-content .about-stats,
+.about-content .about-panel {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.about-content .belief-card:hover,
+.about-content .about-dual article:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 206, 209, 0.4);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-story img,
+  .about-content .belief-card,
+  .about-content .about-dual article,
+  .about-content .about-stats,
+  .about-content .about-panel {
+    transition: none;
+  }
+}
+@media (max-width: 700px) {
+  .about-content .about-dual {
+    width: calc(100% - 32px);
+  }
+}
