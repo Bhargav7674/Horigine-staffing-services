@@ -248,7 +248,6 @@ export default function CareerDetail() {
                       onChange={(event) =>
                         handleResumeChange(event.target.files?.[0])
                       }
-                      required
                     />
                   </span>
                   {resumeError && (

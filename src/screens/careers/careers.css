@@ -778,6 +778,41 @@
     padding: 0 9px;
     font-size: 11px;
   }
+  .career-detail-container {
+    padding-top: 24px;
+    padding-bottom: 48px;
+  }
+  .career-detail-grid,
+  .career-application-form {
+    grid-template-columns: 1fr;
+  }
+  .career-detail-grid {
+    gap: 12px;
+  }
+  .career-detail-panel {
+    padding: 20px;
+  }
+  .career-detail-hero {
+    padding: 22px 18px;
+  }
+  .career-detail-meta {
+    gap: 8px;
+  }
+  .career-detail-meta span {
+    font-size: 10px;
+  }
+  .application-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .career-application-panel {
+    padding: 22px 18px;
+  }
+  .application-submit-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
   .role-card {
     padding: 20px;
   }
