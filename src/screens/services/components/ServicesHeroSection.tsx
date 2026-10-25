@@ -3,7 +3,7 @@ export default function ServicesHeroSection() {
   return (
     <section className="container services-hero">
       <div>
-        <span className="eyebrow">Premium IT Solutions</span>
+        <span className="eyebrow">IT Solutions &amp; Staffing</span>
         <h1>
           Comprehensive IT Solutions That Deliver{" "}
           <span className="gradient-text">Results</span>

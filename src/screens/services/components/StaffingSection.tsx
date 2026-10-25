@@ -11,10 +11,10 @@ export default function StaffingSection() {
     <section className="services-section divided">
       <div className="container">
         <div className="section-heading">
-          <h2>IT Staffing &amp; Recruitment</h2>
+          <h2>IT Staffing</h2>
           <p>
-            Connecting you with top-tier technical talent to drive your projects
-            forward.
+            Staffing services for contract, full-time, and managed technical
+            teams, with candidates screened for the work they will do.
           </p>
         </div>
         <div className="staffing-grid">

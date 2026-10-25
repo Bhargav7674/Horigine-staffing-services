@@ -1,23 +1,23 @@
 import { Cloud, Code2, Database, Workflow } from "lucide-react";
 const services = [
   [
-    "Product Engineering & DevOps",
-    "Accelerate your software delivery lifecycle with custom product development, automated CI/CD pipelines, and continuous monitoring.",
-    Code2,
-  ],
-  [
-    "Cloud Consulting (AWS/Azure)",
-    "Expert guidance on cloud strategy, migration, and optimization to ensure your infrastructure is scalable, secure, and cost-effective.",
-    Cloud,
-  ],
-  [
-    "Salesforce Implementation",
-    "End-to-end Salesforce integration and customization to maximize your CRM investment and streamline customer interactions.",
+    "Salesforce",
+    "Customize and implement Salesforce solutions to strengthen customer relationships, streamline workflows, and turn business data into actionable insights.",
     Database,
   ],
   [
-    "System Integration & Maintenance",
-    "Seamlessly connect disparate systems and provide ongoing support to ensure robust, secure, and competitive digital products.",
+    "Product Engineering & AI/ML",
+    "Build and enhance digital products with full-cycle engineering, intelligent AI/ML capabilities, and scalable architecture tailored to your business needs.",
+    Code2,
+  ],
+  [
+    "Oracle",
+    "Design, modernize, and support Oracle applications and databases to improve performance, reliability, and the flow of critical business data.",
+    Cloud,
+  ],
+  [
+    "SAP",
+    "Implement and optimize SAP solutions to connect core business processes, improve operational visibility, and support confident decision-making.",
     Workflow,
   ],
 ];

@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="footer-main container">
           <div className="footer-about">
             <Link to="/" className="footer-brand">
-              ✦ Horigine Staffing
+              <img src="/images/horigine-logo.png" alt="Horigine logo" />
             </Link>
             <p>
               Horigine Staffing is a specialized recruitment firm focused on
@@ -28,9 +28,9 @@ export default function Footer() {
           <div>
             <h3>Services</h3>
             <Link to="/services">
-              Contract Staffing and Full-time Staffing Services
+              Managed IT Solutions
             </Link>
-            <Link to="/services">Software Services</Link>
+            <Link to="/services">Staffing Services</Link>
           </div>
           <div>
             <h3>Contact Us</h3>

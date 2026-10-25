@@ -1,4 +1,9 @@
-import { Cloud, Database, ShoppingCart, type LucideIcon } from "lucide-react";
+import {
+  Activity,
+  Code2,
+  ShoppingCart,
+  type LucideIcon,
+} from "lucide-react";
 
 type ProjectSection = {
   heading: string;
@@ -20,111 +25,111 @@ type ClientProject = {
 
 export const clientProjects: ClientProject[] = [
   {
-    id: "cloud-platform-modernization",
+    id: "notification-opcode-development",
     number: "01",
-    category: "Cloud infrastructure",
-    title: "Cloud Platform Modernization",
+    category: "Enterprise platform integration",
+    title: "Notification & Opcode Development",
     summary:
-      "A representative cloud modernization project covering infrastructure migration, deployment automation, and operational visibility.",
+      "Customized notification processing, opcode functionality, and REST API integrations built around specific business requirements.",
     overview:
-      "This illustrative implementation brings application workloads and supporting infrastructure into a maintainable cloud environment. The work focuses on a clear migration plan, repeatable deployment practices, and operational readiness.",
-    icon: Cloud,
-    tags: ["Cloud", "AWS", "Azure", "DevOps"],
+      "Delivered a tailored platform implementation spanning PODL and Classes development, policy customization, Opcode NAP configuration, notification processing, and REST API integration. Customization and integration testing ensured each part worked together for the required business workflows.",
+    icon: Code2,
+    tags: ["PODL & Classes", "REST APIs", "Policy customization", "Opcode NAP"],
     sections: [
       {
-        heading: "Cloud architecture and migration",
+        heading: "PODL, Classes, and policy customization",
         points: [
-          "Review application dependencies and define a phased migration approach.",
-          "Design cloud environments around security, availability, and operational needs.",
-          "Coordinate workload migration and validate services after each transition.",
+          "Develop and customize PODL and Classes to meet notification and opcode requirements.",
+          "Align application policies with business-specific behavior and processing rules.",
+          "Configure Opcode NAP files to support the required application workflows.",
         ],
       },
       {
-        heading: "Deployment and operations",
+        heading: "REST API integration and notification processing",
         points: [
-          "Automate build and deployment steps for more repeatable releases.",
-          "Add monitoring and logging practices to improve service visibility.",
-          "Document operational handover and ongoing maintenance procedures.",
+          "Design REST APIs for system integration and reliable data communication.",
+          "Implement and enhance requirement-specific notification processing and configuration.",
+          "Test, troubleshoot, and validate integrated functionality against project requirements.",
         ],
       },
     ],
     outcomes: [
-      "A documented cloud architecture and migration plan.",
-      "Repeatable deployment workflows for application releases.",
-      "Improved visibility into application and infrastructure health.",
-      "Operational guidance for ongoing support and maintenance.",
+      "Delivered business-specific notification processing and opcode functionality.",
+      "Enabled API-based communication between integrated systems.",
+      "Validated customized policies, PODL, Classes, and Opcode NAP configuration.",
+      "Provided an integrated solution tested against the requested requirements.",
     ],
   },
   {
-    id: "healthcare-data-integration",
+    id: "healthcare-imaging-validation",
     number: "02",
-    category: "Healthcare technology",
-    title: "Healthcare Data Integration",
+    category: "Healthcare · Medical imaging · Diagnostics",
+    title: "Diagnostic Management & Imaging Validation",
     summary:
-      "A representative data integration project connecting healthcare systems through reliable, secure information workflows.",
+      "End-to-end validation for a multi-facility diagnostic platform spanning medical devices, cloud APIs, mobile apps, and hospital systems.",
     overview:
-      "This illustrative project focuses on connecting separate healthcare applications and organizing the movement of operational data. Integration requirements, access controls, and validation are addressed throughout delivery.",
-    icon: Database,
-    tags: ["Data integration", "APIs", "Healthcare", "Security"],
+      "An engineering and quality assurance program for an enterprise imaging and diagnostic management platform. Validation covered high-volume radiology workflows, patient-specialty tracking, multi-modality routing, and integrations across cloud services, mobile clients, desktop software, and connected clinical equipment.",
+    icon: Activity,
+    tags: ["Healthcare", "PACS / DICOM", "API testing", "Automation"],
     sections: [
       {
-        heading: "Integration planning",
+        heading: "Device, platform, and workflow validation",
         points: [
-          "Map source systems, data ownership, and integration requirements.",
-          "Define consistent interfaces and validation rules for exchanged information.",
-          "Plan access controls and error handling for connected services.",
+          "Validate interactions with PACS hardware, ultrasound, iris scanners, digital X-ray equipment, and connected clinical sensors.",
+          "Test web, iOS, Android, tablet, Windows, and Mac experiences, including synchronization and English/Spanish localization.",
+          "Verify clinical worksheets, patient-specialty mapping, billing details, procedure data, and clinical sign-off rules across EHR/HIS workflows.",
         ],
       },
       {
-        heading: "Implementation and validation",
+        heading: "Automation, data integrity, and compliance",
         points: [
-          "Build and configure service integrations between selected applications.",
-          "Validate data flows with representative scenarios and exception cases.",
-          "Provide documentation for support, monitoring, and future changes.",
+          "Build automated regression coverage with Selenium, Appium, TestNG, JUnit, and Cucumber BDD; verify APIs with Postman and Rest Assured.",
+          "Protect DICOM metadata and validate image rendering, storage integrity, and high-volume transfers across distributed archives.",
+          "Map validation to FDA, HIPAA, and GDPR requirements; exercise access controls, safety behavior, and performance under load.",
         ],
       },
     ],
     outcomes: [
-      "A documented view of system integration requirements.",
-      "Connected application workflows with defined validation.",
-      "Clearer handling of integration errors and exceptions.",
-      "Support documentation for continued operation.",
+      "Validated reliable messaging and synchronization across care facilities, LIS, RIS, and PACS systems.",
+      "Created a Cucumber BDD regression suite to shorten validation cycles for platform updates.",
+      "Established requirement-to-test traceability in Jama Connect for audit readiness.",
+      "Verified distinct permissions for diagnostic operations and medical residency training profiles.",
     ],
   },
   {
-    id: "digital-commerce-platform",
+    id: "salesforce-commerce-cloud",
     number: "03",
-    category: "Digital commerce",
-    title: "Digital Commerce Platform",
+    category: "Salesforce Commerce Cloud",
+    title: "Global Commerce & Omnichannel Service",
     summary:
-      "A representative commerce implementation coordinating storefront experiences, product data, and supporting services.",
+      "A global storefront and integration platform connecting localized commerce, enterprise systems, security, and customer service operations.",
     overview:
-      "This illustrative commerce project brings core digital sales workflows together, with attention to maintainable integrations and a consistent customer experience across platform services.",
+      "A Salesforce Commerce Cloud implementation built around a reusable global storefront architecture and market-specific experiences. The solution connected commerce with lead sources, ERPs, marketing platforms, and Service Cloud while strengthening security monitoring and service-agent context.",
     icon: ShoppingCart,
-    tags: ["E-commerce", "Integration", "APIs", "Product engineering"],
+    tags: ["Commerce Cloud", "Service Cloud", "REST / GraphQL", "Shield"],
     sections: [
       {
-        heading: "Commerce workflow engineering",
+        heading: "Global storefront and enterprise integrations",
         points: [
-          "Review customer, catalog, and order workflows across connected systems.",
-          "Implement service integrations for product and transaction information.",
-          "Structure platform components to support maintainable future updates.",
+          "Create a reusable global storefront template to accelerate regional launches while preserving brand consistency.",
+          "Configure regional currencies, tax rules, language translations, and country-specific checkout journeys.",
+          "Connect lead sourcing platforms, legacy ERPs, and marketing endpoints through secure REST and GraphQL integrations.",
         ],
       },
       {
-        heading: "Testing and delivery",
+        heading: "Security and omnichannel service",
         points: [
-          "Validate key storefront and order scenarios across integrations.",
-          "Address error states and service handoffs in the commerce workflow.",
-          "Prepare release and operational documentation for the platform.",
+          "Configure Salesforce Shield encryption, event monitoring, and field audit trails, and monitor security posture across environments.",
+          "Use Data Cloud insights to monitor platform performance and customer journeys.",
+          "Route high-value service requests to specialist agents and provide a unified view of customer and order history.",
         ],
       },
     ],
     outcomes: [
-      "Connected commerce workflows across supporting services.",
-      "Consistent handling of product and order information.",
-      "Validated customer and transaction scenarios.",
-      "A maintainable foundation for ongoing platform development.",
+      "Established a repeatable storefront foundation for regional expansion.",
+      "Enabled localized shopping and checkout experiences across markets.",
+      "Improved visibility into security posture, platform activity, and customer journeys.",
+      "Equipped service teams with context for faster, more informed customer support.",
     ],
   },
 ];

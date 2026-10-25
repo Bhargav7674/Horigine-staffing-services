@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 15, suffix: "+", label: "Years Experience" },
-  { value: 500, suffix: "+", label: "Placements" },
-  { value: 50, suffix: "+", label: "Core Technologies" },
-  { value: 100, suffix: "+", label: "Active Clients" },
+  { value: 1, suffix: "+", label: "Years Experience" },
+  { value: 100, suffix: "+", label: "Placements" },
+  { value: 20, suffix: "+", label: "Core Technologies" },
+  { value: 15, suffix: "+", label: "Clients" },
 ];
 
 export default function StatsSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [count, setCount] = useState(0);
+  const [counts, setCounts] = useState(() => stats.map(() => 0));
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -23,12 +23,12 @@ export default function StatsSection() {
       const updateCount = (now: number) => {
         const progress = Math.min((now - startTime) / duration, 1);
         const easedProgress = 1 - (1 - progress) ** 3;
-        setCount(Math.floor(stats[0].value * easedProgress));
+        setCounts(stats.map(({ value }) => Math.floor(value * easedProgress)));
 
         if (progress < 1) {
           frame = requestAnimationFrame(updateCount);
         } else {
-          setCount(stats[0].value);
+          setCounts(stats.map(({ value }) => value));
         }
       };
 
@@ -40,7 +40,7 @@ export default function StatsSection() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
       !("IntersectionObserver" in window)
     ) {
-      setCount(stats[0].value);
+      setCounts(stats.map(({ value }) => value));
       return;
     }
 
@@ -68,11 +68,10 @@ export default function StatsSection() {
       ref={sectionRef}
       aria-label="Horigine company statistics"
     >
-      {stats.map(({ value, suffix, label }, index) => (
+      {stats.map(({ suffix, label }, index) => (
         <div className="stat-item" key={label}>
           <strong className="gradient-text">
-            {index === 0 ? count : Math.round((count / stats[0].value) * value)}
-            {suffix}
+            {counts[index]}{suffix}
           </strong>
           <span>{label}</span>
         </div>

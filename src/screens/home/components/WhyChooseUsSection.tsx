@@ -22,7 +22,7 @@ export default function WhyChooseUsSection() {
       <div className="section-heading">
         <span className="eyebrow">Why Choose Us</span>
         <h2>
-          Your Trusted Partner in Precision Hiring and Lasting Talent Solutions
+          Your Trusted Partner in Precision Hiring and Managed IT Solutions
         </h2>
       </div>
       <div className="feature-grid">

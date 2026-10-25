@@ -16,11 +16,7 @@ export default function Navbar() {
     <header className="nav-wrap">
       <div className="nav-bar">
         <Link to="/" className="brand" aria-label="Horigine Staffing home">
-          <span className="brand-mark">H</span>
-          <span className="brand-copy">
-            <b>HORIGINE</b>
-            <small>STAFFING</small>
-          </span>
+          <img src="/images/horigine-logo.png" alt="Horigine logo" />
         </Link>
         <button
           className="mobile-menu-toggle"

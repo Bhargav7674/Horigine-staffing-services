@@ -28,7 +28,7 @@ export default function ProductServicesSection() {
       id="product-services"
     >
       <div className="section-heading">
-        <h2>IT Services &amp; Product Implementation</h2>
+        <h2>IT Solutions</h2>
         <p>
           End-to-end technology solutions engineered for scalability, security,
           and performance.

@@ -1,11 +1,12 @@
 import {
-  BriefcaseBusiness,
+  ArrowUpRight,
   Clock3,
   MapPin,
   Search,
   TrendingUp,
   WalletCards,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import type { CareerRole } from "../Careers";
 
 type Props = {
@@ -88,7 +89,12 @@ export default function OpportunitiesSection({
       {roles.length ? (
         <div className="role-grid">
           {roles.map((role) => (
-            <article className="role-card" key={role.id}>
+            <Link
+              className="role-card"
+              key={role.id}
+              to={`/careers/${role.id}`}
+              aria-label={`View ${role.title} job details`}
+            >
               <div className="role-card-topline">
                 <span
                   className={`role-department ${role.department === "Architecture" ? "orange-text" : ""}`}
@@ -126,13 +132,10 @@ export default function OpportunitiesSection({
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
-              <a
-                className="apply-button"
-                href={`mailto:careers@horiginestaffing.com?subject=${encodeURIComponent(`Application: ${role.title}`)}&body=${encodeURIComponent(`Hello Horigine Staffing team,\n\nI am interested in the ${role.title} position.\n\nPlease find my resume attached.\n\nThank you.`)}`}
-              >
-                Apply Now <BriefcaseBusiness size={14} />
-              </a>
-            </article>
+              <span className="apply-button">
+                View Job Details <ArrowUpRight size={14} />
+              </span>
+            </Link>
           ))}
         </div>
       ) : (

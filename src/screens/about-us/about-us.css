@@ -28,6 +28,9 @@
 }
 .about-overview {
   text-align: center;
+  background:
+    linear-gradient(90deg, rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.74)),
+    url("/images/about-team.png") center 45% / cover;
 }
 .breadcrumb {
   font-size: 12px;

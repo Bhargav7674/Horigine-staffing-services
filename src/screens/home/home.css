@@ -12,19 +12,19 @@
   letter-spacing: -0.04em;
   margin: 18px 0;
 }
-.hero-heading-word {
+.hero-heading-copy::after {
+  content: "";
   display: inline-block;
-  opacity: 0;
-  animation: hero-word-reveal 0.55s ease-out forwards;
+  width: 2px;
+  height: 0.85em;
+  margin-left: 3px;
+  vertical-align: -0.06em;
+  background: #00ced1;
+  animation: hero-caret-blink 0.8s step-end infinite;
 }
-@keyframes hero-word-reveal {
-  from {
+@keyframes hero-caret-blink {
+  50% {
     opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 .home-hero p {
@@ -141,6 +141,31 @@
   text-align: center;
   padding: 18px 12px;
 }
+.home-page .scroll-reveal-visible .process-step {
+  animation: process-step-enter 0.58s cubic-bezier(0.2, 0.75, 0.3, 1) backwards;
+}
+.home-page .scroll-reveal-visible .process-step:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.home-page .scroll-reveal-visible .process-step:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.home-page .scroll-reveal-visible .process-step:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.home-page .scroll-reveal-visible .process-step:nth-child(5) {
+  animation-delay: 0.4s;
+}
+@keyframes process-step-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 .process-step b {
   display: grid;
   place-items: center;
@@ -150,6 +175,31 @@
   border-radius: 50%;
   border: 1px solid #00ced1;
   color: #00ced1;
+}
+.home-page .scroll-reveal-visible .process-step b {
+  animation: process-marker-pop 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.4) backwards;
+}
+.home-page .scroll-reveal-visible .process-step:nth-child(2) b {
+  animation-delay: 0.18s;
+}
+.home-page .scroll-reveal-visible .process-step:nth-child(3) b {
+  animation-delay: 0.28s;
+}
+.home-page .scroll-reveal-visible .process-step:nth-child(4) b {
+  animation-delay: 0.38s;
+}
+.home-page .scroll-reveal-visible .process-step:nth-child(5) b {
+  animation-delay: 0.48s;
+}
+@keyframes process-marker-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 .job-grid,
 .testimonial-grid {
@@ -190,6 +240,10 @@
   margin: 0 auto 20px;
   font-size: 13px;
   line-height: 1.7;
+}
+.home-page main > .scroll-reveal {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 @media (max-width: 900px) {
   .service-grid {
@@ -368,6 +422,7 @@
 }
 .home-page .feature-card,
 .home-page .service-card,
+.home-page .staffing-card,
 .home-page .process-step,
 .home-page .job-card,
 .home-page .testimonial-card,
@@ -377,10 +432,50 @@
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+.home-page .scroll-reveal-visible .feature-card,
+.home-page .scroll-reveal-visible .service-card,
+.home-page .scroll-reveal-visible .staffing-card,
+.home-page .scroll-reveal-visible .job-card,
+.home-page .scroll-reveal-visible .testimonial-card {
+  animation: home-card-enter 0.55s cubic-bezier(0.2, 0.75, 0.3, 1) backwards;
+}
+.home-page .scroll-reveal-visible .feature-card:nth-child(2),
+.home-page .scroll-reveal-visible .service-card:nth-child(2),
+.home-page .scroll-reveal-visible .staffing-card:nth-child(2),
+.home-page .scroll-reveal-visible .job-card:nth-child(2),
+.home-page .scroll-reveal-visible .testimonial-card:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.home-page .scroll-reveal-visible .feature-card:nth-child(3),
+.home-page .scroll-reveal-visible .service-card:nth-child(3),
+.home-page .scroll-reveal-visible .staffing-card:nth-child(3),
+.home-page .scroll-reveal-visible .job-card:nth-child(3),
+.home-page .scroll-reveal-visible .testimonial-card:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.home-page .scroll-reveal-visible .feature-card:nth-child(4),
+.home-page .scroll-reveal-visible .service-card:nth-child(4),
+.home-page .scroll-reveal-visible .staffing-card:nth-child(4),
+.home-page .scroll-reveal-visible .job-card:nth-child(4),
+.home-page .scroll-reveal-visible .testimonial-card:nth-child(4) {
+  animation-delay: 0.24s;
+}
+@keyframes home-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .home-page .feature-card:hover,
 .home-page .service-card:hover,
+.home-page .staffing-card:hover,
 .home-page .process-step:hover,
 .home-page .job-card:hover,
 .home-page .testimonial-card:hover,
@@ -388,19 +483,33 @@
 .home-page .hero-visual:hover {
   transform: translateY(-5px);
   border-color: rgba(0, 206, 209, 0.48);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+  box-shadow:
+    0 0 0 1px rgba(0, 206, 209, 0.14),
+    0 12px 34px rgba(0, 206, 209, 0.12),
+    0 18px 38px rgba(0, 0, 0, 0.28);
+  background-color: rgba(31, 42, 48, 0.98);
 }
 .home-page .about-home-layout img:hover {
   transform: scale(1.025);
   box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-heading-word {
-    opacity: 1;
+  .hero-heading-copy::after {
+    animation: none;
+    opacity: 0;
+  }
+  .home-page .scroll-reveal-visible .process-step,
+  .home-page .scroll-reveal-visible .process-step b,
+  .home-page .scroll-reveal-visible .feature-card,
+  .home-page .scroll-reveal-visible .service-card,
+  .home-page .scroll-reveal-visible .staffing-card,
+  .home-page .scroll-reveal-visible .job-card,
+  .home-page .scroll-reveal-visible .testimonial-card {
     animation: none;
   }
   .home-page .feature-card,
   .home-page .service-card,
+  .home-page .staffing-card,
   .home-page .process-step,
   .home-page .job-card,
   .home-page .testimonial-card,

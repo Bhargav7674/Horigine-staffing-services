@@ -2,24 +2,24 @@ import { BriefcaseBusiness, Cloud, Code2, UsersRound } from "lucide-react";
 
 const cards = [
   [
-    "Cloud & DevOps Talent",
-    "We provide certified AWS and Azure professionals skilled in cloud architecture, DevOps, and infrastructure management.",
-    Cloud,
-  ],
-  [
-    ".NET / Salesforce Placement",
-    "Our network of experienced .NET developers and Salesforce experts helps you build scalable applications and enhance CRM performance.",
-    Code2,
+    "HR Consulting",
+    "Get practical guidance on workforce planning, talent strategy, and retention to build stronger, more effective teams.",
+    BriefcaseBusiness,
   ],
   [
     "Dedicated Teams",
-    "Deploy fully integrated, cross-functional offshore teams that work as a natural extension of your in-house engineering department.",
+    "Build a dedicated team of skilled technology professionals who integrate with your in-house staff and support your goals.",
     UsersRound,
   ],
   [
-    "HR Consulting",
-    "Strategic HR advisory services to help you navigate tech talent markets, structure teams effectively, and retain top performers.",
-    BriefcaseBusiness,
+    "IT Staffing Solutions",
+    "Find qualified IT professionals for contract, contract-to-hire, and permanent roles across cloud, software, data, and infrastructure.",
+    Cloud,
+  ],
+  [
+    "Recruiter Support",
+    "Extend your recruiting capacity with sourcing, candidate screening, and placement support tailored to your hiring needs.",
+    Code2,
   ],
 ];
 export default function ITStaffingSection() {

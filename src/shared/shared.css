@@ -5,7 +5,7 @@
 }
 .nav-bar {
   width: min(100% - 56px, 1140px);
-  min-height: 54px;
+  min-height: 68px;
   margin: auto;
   padding: 8px 16px 8px 20px;
   display: flex;
@@ -21,29 +21,14 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 7px;
-  min-width: 108px;
-  background: #f4f7f8;
-  color: #0b2632;
-  padding: 4px 8px;
-  border-radius: 3px;
+  width: 112px;
+  flex: 0 0 112px;
 }
-.brand-mark {
-  font-size: 23px;
-  font-weight: 800;
-  color: #00aeb8;
-  line-height: 1;
-}
-.brand-copy {
-  display: flex;
-  flex-direction: column;
-  font-size: 8px;
-  line-height: 1.15;
-  letter-spacing: 0.03em;
-}
-.brand-copy small {
-  font-size: 6px;
-  letter-spacing: 0.2em;
+.brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 .nav-links {
   display: flex;
@@ -102,9 +87,14 @@
   line-height: 1.7;
 }
 .footer-brand {
-  font-weight: 800;
-  color: #55dce4;
-  font-size: 17px;
+  display: block;
+  width: min(100%, 230px);
+}
+.footer-brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 .footer-main h3 {
   font-size: 11px;

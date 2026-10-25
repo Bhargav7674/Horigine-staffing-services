@@ -1,34 +1,53 @@
 import { ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const headingWords = [
-  "Your",
-  "Strategic",
-  "Partner",
-  "in",
-  "IT",
-  "Services",
-  "&",
-  "Elite",
-  "Staffing",
-  "Solutions.",
-];
+const headingPrefix = "Your Strategic Partner in ";
+const animatedHeading = "IT Services & Elite Staffing Solutions.";
+const heading = `${headingPrefix}${animatedHeading}`;
 
 export default function HeroSection() {
+  const [visibleCharacters, setVisibleCharacters] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setVisibleCharacters(animatedHeading.length);
+      return;
+    }
+
+    let index = 0;
+    let timeout = 0;
+    let isDeleting = false;
+    const animateText = () => {
+      index += isDeleting ? -1 : 1;
+      setVisibleCharacters(index);
+
+      if (index === animatedHeading.length) {
+        isDeleting = true;
+        timeout = window.setTimeout(animateText, 1100);
+      } else if (index === 0) {
+        isDeleting = false;
+        timeout = window.setTimeout(animateText, 350);
+      } else {
+        timeout = window.setTimeout(animateText, isDeleting ? 35 : 65);
+      }
+    };
+
+    timeout = window.setTimeout(animateText, 65);
+    return () => window.clearTimeout(timeout);
+  }, []);
+
   return (
     <section className="container home-hero">
       <div>
-        <span className="eyebrow">Premium IT Solutions</span>
-        <h1>
-          {headingWords.map((word, index) => (
-            <span
-              className={`hero-heading-word${index >= 4 ? " gradient-text" : ""}`}
-              key={word}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {word}{" "}
+        <span className="eyebrow">Expert IT Solutions</span>
+        <h1 className="hero-heading-copy" aria-label={heading}>
+          <span aria-hidden="true">
+            {headingPrefix}
+            <span className="gradient-text">
+              {animatedHeading.slice(0, visibleCharacters)}
             </span>
-          ))}
+          </span>
         </h1>
         <p>
           Horigine Staffing offers a dual focus on high-impact IT services and

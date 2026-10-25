@@ -16,10 +16,12 @@ export type CareerRole = {
   level: string;
   description: string;
   tags: string[];
+  responsibilities: string[];
+  requirements: string[];
   badge?: "HOT" | "NEW";
 };
 
-const roles: CareerRole[] = [
+export const roles: CareerRole[] = [
   {
     id: 1,
     department: "Engineering",
@@ -31,6 +33,16 @@ const roles: CareerRole[] = [
     description:
       "Lead complex Apex integrations and design scalable Salesforce architectures for enterprise teams.",
     tags: ["Apex", "LWC"],
+    responsibilities: [
+      "Design and deliver scalable Salesforce features using Apex and Lightning Web Components.",
+      "Integrate Salesforce with enterprise platforms through secure APIs.",
+      "Review code, troubleshoot production issues, and support reliable releases.",
+    ],
+    requirements: [
+      "5+ years of Salesforce development experience.",
+      "Strong Apex, Lightning Web Components, SOQL, and REST API skills.",
+      "Experience with Salesforce architecture, testing, and deployment practices.",
+    ],
     badge: "HOT",
   },
   {
@@ -44,6 +56,16 @@ const roles: CareerRole[] = [
     description:
       "Design and implement secure, robust, highly available cloud infrastructure solutions.",
     tags: ["AWS", "Terraform"],
+    responsibilities: [
+      "Design secure, highly available AWS infrastructure for business workloads.",
+      "Build infrastructure-as-code modules and automated deployment pipelines.",
+      "Partner with engineering teams on cloud reliability, cost, and observability.",
+    ],
+    requirements: [
+      "Strong hands-on AWS architecture and cloud networking experience.",
+      "Production experience with Terraform and infrastructure automation.",
+      "Knowledge of cloud security, monitoring, and high-availability patterns.",
+    ],
     badge: "NEW",
   },
   {
@@ -57,6 +79,16 @@ const roles: CareerRole[] = [
     description:
       "Build scalable web applications using React and Node.js for high-traffic enterprise platforms.",
     tags: ["React", "Node.js"],
+    responsibilities: [
+      "Build and maintain responsive user experiences with React and TypeScript.",
+      "Develop backend services and integrations using Node.js.",
+      "Collaborate across product, design, and engineering to ship tested features.",
+    ],
+    requirements: [
+      "Professional experience with React and modern JavaScript or TypeScript.",
+      "Experience building REST APIs and backend services with Node.js.",
+      "Familiarity with automated testing, Git, and collaborative delivery.",
+    ],
   },
 ];
 

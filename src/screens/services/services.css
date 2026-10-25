@@ -49,6 +49,12 @@
 .product-card {
   padding: 24px 20px 20px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    box-shadow 0.24s ease,
+    filter 0.24s ease;
 }
 .product-card img {
   display: block;
@@ -101,6 +107,11 @@
   border-radius: 10px;
   background-size: cover;
   background-position: center;
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    box-shadow 0.24s ease,
+    filter 0.24s ease;
 }
 .staffing-card .staffing-dot {
   align-self: flex-start;
@@ -136,6 +147,10 @@
   z-index: 1;
   text-align: center;
   padding: 12px;
+  border-radius: 10px;
+  transition:
+    transform 0.24s ease,
+    background-color 0.24s ease;
 }
 .work-step b {
   display: grid;
@@ -243,14 +258,70 @@
     rgba(21, 25, 33, 0.98)
   );
   transition:
-    transform 0.2s,
-    border-color 0.2s,
-    box-shadow 0.2s;
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    box-shadow 0.24s ease,
+    filter 0.24s ease;
 }
+.services-page .scroll-reveal-visible .product-card,
+.services-page .scroll-reveal-visible .staffing-card,
+.services-page .scroll-reveal-visible .work-step,
+.services-page .scroll-reveal-visible .client-project-card {
+  animation: service-card-enter 0.55s cubic-bezier(0.2, 0.75, 0.3, 1) backwards;
+}
+.services-page .scroll-reveal-visible .product-card:nth-child(2),
+.services-page .scroll-reveal-visible .staffing-card:nth-child(2),
+.services-page .scroll-reveal-visible .work-step:nth-child(2),
+.services-page .scroll-reveal-visible .client-project-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.services-page .scroll-reveal-visible .product-card:nth-child(3),
+.services-page .scroll-reveal-visible .staffing-card:nth-child(3),
+.services-page .scroll-reveal-visible .work-step:nth-child(3),
+.services-page .scroll-reveal-visible .client-project-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.services-page .scroll-reveal-visible .work-step:nth-child(4) {
+  animation-delay: 0.3s;
+}
+@keyframes service-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.product-card:hover,
+.staffing-card:hover,
+.work-step:hover,
 .client-project-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 206, 209, 0.45);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+  transform: translateY(-5px);
+  border-color: rgba(0, 206, 209, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(0, 206, 209, 0.14),
+    0 14px 34px rgba(0, 206, 209, 0.12),
+    0 18px 38px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.08);
+}
+.work-step:hover {
+  background-color: rgba(0, 206, 209, 0.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  .services-page .scroll-reveal-visible .product-card,
+  .services-page .scroll-reveal-visible .staffing-card,
+  .services-page .scroll-reveal-visible .work-step,
+  .services-page .scroll-reveal-visible .client-project-card {
+    animation: none;
+  }
+  .product-card,
+  .staffing-card,
+  .work-step,
+  .client-project-card {
+    transition: none;
+  }
 }
 .client-project-top {
   display: flex;

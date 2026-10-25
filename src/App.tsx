@@ -7,6 +7,7 @@ import Services from "./screens/services/Services";
 import Careers from "./screens/careers/Careers";
 import ContactUs from "./screens/contact-us/ContactUs";
 import ProjectDetail from "./screens/services/project-detail/ProjectDetail";
+import CareerDetail from "./screens/careers/CareerDetail";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -38,6 +39,7 @@ export default function App() {
           element={<ProjectDetail />}
         />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/careers/:roleId" element={<CareerDetail />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
