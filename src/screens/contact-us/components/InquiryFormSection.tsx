@@ -5,8 +5,10 @@ import type { InquiryFormValues } from "../ContactUs";
 type Props = {
   form: InquiryFormValues;
   updateField: (field: keyof InquiryFormValues, value: string) => void;
-  onSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void | Promise<void>;
   notice: string;
+  isSubmitting?: boolean;
+  isError?: boolean;
 };
 
 export default function InquiryFormSection({
@@ -14,6 +16,8 @@ export default function InquiryFormSection({
   updateField,
   onSubmit,
   notice,
+  isSubmitting = false,
+  isError = false,
 }: Props) {
   return (
     <section className="inquiry-card" aria-labelledby="inquiry-title">
@@ -79,11 +83,14 @@ export default function InquiryFormSection({
             required
           />
         </label>
-        <button className="inquiry-submit" type="submit">
-          Send Message <ArrowRight size={17} />
+        <button className="inquiry-submit" type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Sending..." : "Send Message"} <ArrowRight size={17} />
         </button>
         {notice && (
-          <p className="inquiry-notice" role="status">
+          <p
+            className={`inquiry-notice ${isError ? "inquiry-notice-error" : ""}`}
+            role="status"
+          >
             {notice}
           </p>
         )}

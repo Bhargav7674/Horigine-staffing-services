@@ -5,6 +5,7 @@ import Footer from "../../shared/Footer";
 import ContactDetailsSection from "./components/ContactDetailsSection";
 import InquiryFormSection from "./components/InquiryFormSection";
 import OfficeMapSection from "./components/OfficeMapSection";
+import { submitInquiry, InquiryApiError } from "../../services/inquiryService";
 import "./contact-us.css";
 
 export type InquiryFormValues = {
@@ -22,24 +23,62 @@ export default function ContactUs() {
     message: "",
   });
   const [notice, setNotice] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const updateField = (field: keyof InquiryFormValues, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
     setNotice("");
+    setIsError(false);
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const subject = encodeURIComponent(
-      `Website inquiry — ${form.serviceInterest}`,
-    );
-    const body = encodeURIComponent(
-      `Name: ${form.fullName}\nWork email: ${form.workEmail}\nService interest: ${form.serviceInterest}\n\nMessage:\n${form.message}`,
-    );
-    setNotice(
-      "Your email app will open with the inquiry prepared. Please send the email to complete your submission.",
-    );
-    window.location.href = `mailto:hello@horigine.com?subject=${subject}&body=${body}`;
+
+    const payload = {
+      full_name: form.fullName.trim(),
+      work_email: form.workEmail.trim(),
+      service_interest: form.serviceInterest.trim(),
+      message: form.message.trim(),
+      website: "",
+    };
+
+    if (
+      !payload.full_name ||
+      !payload.work_email ||
+      !payload.service_interest ||
+      !payload.message
+    ) {
+      setIsError(true);
+      setNotice("Please complete all required fields before submitting.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setNotice("");
+    setIsError(false);
+
+    try {
+      const response = await submitInquiry(payload);
+
+      setNotice(response.message || "Your inquiry has been sent successfully.");
+      setForm({
+        fullName: "",
+        workEmail: "",
+        serviceInterest: "",
+        message: "",
+      });
+    } catch (error) {
+      const message =
+        error instanceof InquiryApiError
+          ? error.message
+          : "Unable to submit your inquiry right now. Please try again later.";
+
+      setIsError(true);
+      setNotice(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -66,6 +105,8 @@ export default function ContactUs() {
             updateField={updateField}
             onSubmit={handleSubmit}
             notice={notice}
+            isSubmitting={isSubmitting}
+            isError={isError}
           />
         </section>
 

@@ -155,6 +155,16 @@
 .about-contact .gradient-button {
   margin: auto;
 }
+@media (max-width: 1100px) {
+  .about-dual,
+  .about-story-layout,
+  .belief-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .about-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 @media (max-width: 700px) {
   .about-content {
     gap: 38px;
@@ -179,6 +189,28 @@
   }
   .about-stat:last-child {
     grid-column: 1/-1;
+  }
+}
+@media (max-width: 480px) {
+  .about-panel {
+    padding: 22px 18px;
+  }
+  .about-overview h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+  .about-overview p,
+  .about-story p,
+  .belief-card p,
+  .about-dual p {
+    font-size: 12.5px;
+  }
+  .about-story img {
+    height: 200px;
+  }
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 18px 12px;
   }
 }
 .about-content .scroll-reveal {

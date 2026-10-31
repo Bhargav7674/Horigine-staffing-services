@@ -15,7 +15,12 @@ export default function Navbar() {
   return (
     <header className="nav-wrap">
       <div className="nav-bar">
-        <Link to="/" className="brand" aria-label="Horigine Staffing home">
+        <Link
+          to="/"
+          className="brand"
+          aria-label="Horigine Staffing home"
+          onClick={() => setOpen(false)}
+        >
           <img src="/images/horigine-logo.png" alt="Horigine logo" />
         </Link>
         <button

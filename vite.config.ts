@@ -23,4 +23,22 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://horizon-staffing.onrender.com",
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
+  preview: {
+    proxy: {
+      "/api": {
+        target: "https://horizon-staffing.onrender.com",
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
 });

@@ -258,6 +258,13 @@
   font-size: 11px;
   line-height: 1.6;
 }
+.inquiry-notice-error {
+  color: #ff9b8a;
+}
+.inquiry-submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
 .office-map-wrap {
   padding-top: 96px;
 }
@@ -312,6 +319,22 @@
 .office-map-label span:last-child {
   font-size: 11px;
   color: #d4dbea;
+}
+@media (max-width: 1100px) {
+  .contact-container {
+    width: min(100% - 48px, 1180px);
+  }
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+  .contact-details-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .contact-address-card {
+    grid-column: 1/-1;
+  }
 }
 @media (max-width: 850px) {
   .contact-container {

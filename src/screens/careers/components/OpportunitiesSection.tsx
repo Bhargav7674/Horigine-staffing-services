@@ -17,6 +17,8 @@ type Props = {
   onDepartmentChange: (value: string) => void;
   location: string;
   onLocationChange: (value: string) => void;
+  isLoading?: boolean;
+  error?: string;
 };
 
 export default function OpportunitiesSection({
@@ -27,6 +29,8 @@ export default function OpportunitiesSection({
   onDepartmentChange,
   location,
   onLocationChange,
+  isLoading = false,
+  error = "",
 }: Props) {
   return (
     <section
@@ -86,7 +90,25 @@ export default function OpportunitiesSection({
         </select>
       </div>
 
-      {roles.length ? (
+      {isLoading ? (
+        <div className="no-roles">
+          <Search size={24} />
+          <h3>Loading open roles...</h3>
+          <p>Fetching the latest opportunities from our team.</p>
+        </div>
+      ) : error ? (
+        <div className="no-roles">
+          <Search size={24} />
+          <h3>We couldn&apos;t load roles</h3>
+          <p>{error}</p>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+          >
+            Try again
+          </button>
+        </div>
+      ) : roles.length ? (
         <div className="role-grid">
           {roles.map((role) => (
             <Link

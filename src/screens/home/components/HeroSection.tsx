@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const headingPrefix = "Your Strategic Partner in ";
-const animatedHeading = "IT Services & Elite Staffing Solutions.";
+const animatedHeading = "IT Solutions & Elite Staffing Services.";
 const heading = `${headingPrefix}${animatedHeading}`;
 
 export default function HeroSection() {

@@ -1,4 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --bg-primary: #0a0f17;
+  --bg-secondary: #101a24;
+  --bg-surface: rgba(20, 27, 35, 0.82);
+  --bg-surface-strong: rgba(13, 19, 26, 0.96);
+  --border-soft: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(0, 206, 209, 0.2);
+  --text-primary: #f3f7fb;
+  --text-secondary: #c1cad7;
+  --text-muted: #8b97ad;
+  --teal: #00ced1;
+  --teal-soft: rgba(0, 206, 209, 0.14);
+  --green: #66b98d;
+  --amber: #f59e0b;
+  --shadow-soft: 0 22px 60px rgba(1, 8, 14, 0.36);
+  --shadow-card: 0 18px 45px rgba(0, 0, 0, 0.18);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+}
+
 :root {
   font-family:
     Inter,
@@ -7,8 +29,8 @@
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  color: #f8fafc;
-  background: #10131a;
+  color: var(--text-primary);
+  background: var(--bg-primary);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -20,9 +42,26 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
 }
+html,
+body,
+#root {
+  min-height: 100%;
+}
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at top left, rgba(0, 206, 209, 0.08), transparent 30%),
+    radial-gradient(ellipse at bottom right, rgba(245, 158, 11, 0.08), transparent 28%),
+    var(--bg-primary);
+  color: var(--text-primary);
+}
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
 }
 a {
   color: inherit;
@@ -35,20 +74,25 @@ a {
 button {
   font: inherit;
 }
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(0, 206, 209, 0.9);
+  outline-offset: 2px;
+}
 .app-shell {
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background:
-    radial-gradient(
-      ellipse at 14% 12%,
-      rgba(0, 206, 209, 0.055),
-      transparent 30%
-    ),
-    #10131a;
-  color: #f8fafc;
+    radial-gradient(ellipse at 14% 12%, rgba(0, 206, 209, 0.08), transparent 32%),
+    radial-gradient(ellipse at 80% 15%, rgba(245, 158, 11, 0.05), transparent 24%),
+    var(--bg-primary);
+  color: var(--text-primary);
 }
 .container {
-  width: min(100% - 56px, 1200px);
+  width: min(100% - 28px, 1500px);
   margin-inline: auto;
 }
 .section-space {
@@ -75,15 +119,16 @@ button {
   line-height: 1.25;
   margin: 0 0 12px;
   font-weight: 700;
+  letter-spacing: -0.04em;
 }
 .section-heading p {
-  color: #b9c1d2;
+  color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.7;
   margin: 0;
 }
 .gradient-text {
-  background: linear-gradient(100deg, #00ced1 0%, #66b98d 52%, #ff970f 100%);
+  background: linear-gradient(100deg, var(--teal) 0%, var(--green) 52%, var(--amber) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -95,48 +140,58 @@ button {
   gap: 8px;
   padding: 12px 22px;
   border-radius: 999px;
-  background: linear-gradient(100deg, #00ced1, #f59e0b);
-  color: #07202a;
+  background: linear-gradient(100deg, var(--teal), var(--amber));
+  color: #071a20;
   font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
+  box-shadow: 0 12px 30px rgba(0, 206, 209, 0.25);
   transition:
     transform 0.2s ease,
+    box-shadow 0.2s ease,
     filter 0.2s ease;
 }
 .gradient-button:hover {
   transform: translateY(-2px);
-  filter: brightness(1.08);
+  filter: brightness(1.06);
+  box-shadow: 0 18px 36px rgba(0, 206, 209, 0.22);
 }
 .outline-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #68717e;
-  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
   padding: 12px 20px;
   font-size: 12px;
-  color: #e5e7eb;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.outline-button:hover {
+  border-color: rgba(0, 206, 209, 0.4);
+  transform: translateY(-1px);
 }
 .glass-card {
   background: linear-gradient(
     135deg,
-    rgba(31, 35, 43, 0.9),
-    rgba(25, 28, 35, 0.88)
+    rgba(24, 31, 38, 0.9),
+    rgba(15, 22, 29, 0.88)
   );
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 12px;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(10px);
 }
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 7px;
   padding: 6px 10px;
-  border: 1px solid rgba(0, 206, 209, 0.22);
+  border: 1px solid var(--border-strong);
   border-radius: 999px;
-  color: #5de5e5;
-  background: rgba(0, 206, 209, 0.07);
+  color: #67ECEC;
+  background: rgba(0, 206, 209, 0.08);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -146,17 +201,42 @@ button {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #ff970f;
+  background: var(--amber);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.7);
+}
+@media (max-width: 1280px) {
+  .container {
+    width: min(100% - 24px, 1500px);
+  }
+  .section-space {
+    padding-block: 72px;
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    width: min(100% - 22px, 1500px);
+  }
+  .section-space {
+    padding-block: 64px;
+  }
 }
 @media (max-width: 700px) {
   .container {
-    width: min(100% - 32px, 1200px);
+    width: min(100% - 18px, 1200px);
   }
   .section-space {
     padding-block: 58px;
   }
   .section-heading {
     margin-bottom: 26px;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 16px, 1200px);
+  }
+  .section-space {
+    padding-block: 48px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
