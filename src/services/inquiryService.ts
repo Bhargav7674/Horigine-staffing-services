@@ -1,3 +1,5 @@
+import { buildApiUrl } from "./api";
+
 export type InquiryRequest = {
   full_name: string;
   work_email: string;
@@ -36,7 +38,7 @@ export class InquiryApiError extends Error {
 export async function submitInquiry(payload: InquiryRequest): Promise<InquiryResponse> {
   try {
     const response = await fetch(
-      "/api/v1/inquiries",
+      buildApiUrl("/inquiries"),
       {
         method: "POST",
         headers: {

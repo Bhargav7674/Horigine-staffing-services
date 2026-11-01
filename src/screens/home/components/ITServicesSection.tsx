@@ -26,7 +26,7 @@ export default function ITServicesSection() {
     <section className="container section-space" id="services">
       <div className="section-heading">
         <span className="eyebrow">What We Offer</span>
-        <h2>IT Services</h2>
+        <h2>IT Solutions</h2>
       </div>
       <div className="service-grid">
         {services.map(([title, desc, Icon]) => {

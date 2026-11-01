@@ -5,7 +5,7 @@
 }
 .nav-bar {
   width: min(100% - 28px, 1480px);
-  min-height: 72px;
+  min-height: 82px;
   margin: auto;
   padding: 8px 18px 8px 20px;
   display: flex;
@@ -21,8 +21,8 @@
 .brand {
   display: flex;
   align-items: center;
-  width: 118px;
-  flex: 0 0 118px;
+  width: 210px;
+  flex: 0 0 210px;
   transition: transform 0.2s ease;
 }
 .brand:hover {
@@ -32,6 +32,7 @@
   display: block;
   width: 100%;
   height: auto;
+  max-height: 74px;
   object-fit: contain;
 }
 .nav-links {
@@ -91,37 +92,57 @@
 }
 .footer-main {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+  gap: 52px;
+  align-items: start;
+  padding-top: 12px;
+}
+.footer-about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 0;
 }
 .footer-about p {
-  max-width: 280px;
+  max-width: 350px;
   color: #aeb8cd;
   font-size: 12px;
-  line-height: 1.7;
+  line-height: 1.8;
+  margin: 0;
 }
 .footer-brand {
-  display: block;
-  width: min(100%, 230px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: min(100%, 260px);
+  margin: 0;
+  padding: 0;
 }
 .footer-brand img {
   display: block;
   width: 100%;
   height: auto;
+  max-height: 78px;
   object-fit: contain;
+  margin-left: 0;
 }
-.footer-main h3 {
-  font-size: 11px;
-  margin: 4px 0 16px;
-  color: #f8fafc;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+.footer-main > div {
+  align-self: start;
 }
 .footer-main > div:not(:first-child) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
+  margin-top: 18px;
+}
+.footer-main h3 {
+  font-size: 11px;
+  margin: 0 0 14px;
+  color: #f8fafc;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .footer-main a:not(.footer-brand) {
   color: #b9c1d2;
@@ -133,24 +154,27 @@
   font-size: 12px;
   font-style: normal;
   line-height: 1.6;
+  max-width: 240px;
 }
 .footer-social-links {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   margin-top: 4px;
 }
 .footer-main .footer-social-links a {
   display: grid;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50%;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  color: #f8fafc;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 .footer-main .footer-social-links a:hover {
   transform: translateY(-2px);
   border-color: rgba(0, 206, 209, 0.35);
+  color: #00ced1;
 }
 .footer-main .footer-location-link {
   color: #7feeed;

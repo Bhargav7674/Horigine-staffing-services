@@ -1,3 +1,5 @@
+import { buildApiUrl } from "./api";
+
 export type JobApiItem = {
   id?: string | number;
   uuid?: string;
@@ -74,7 +76,7 @@ export async function fetchJobs(params: JobListParams = {}): Promise<JobApiItem[
   if (params.limit) query.set("limit", String(params.limit));
   if (params.skip) query.set("skip", String(params.skip));
 
-  const url = `/api/v1/jobs${query.toString() ? `?${query.toString()}` : ""}`;
+  const url = buildApiUrl(`/jobs${query.toString() ? `?${query.toString()}` : ""}`);
 
   try {
     const response = await fetch(url, {

@@ -1,3 +1,5 @@
+import { buildApiUrl } from "./api";
+
 export type GuestApplicationPayload = {
   full_name: string;
   work_email: string;
@@ -38,7 +40,7 @@ export async function submitGuestApplication(
   jobId: string | number,
   payload: GuestApplicationPayload,
 ): Promise<GuestApplicationResponse> {
-  const endpoint = `/api/v1/applications/jobs/${jobId}/guest`;
+  const endpoint = buildApiUrl(`/applications/jobs/${jobId}/guest`);
 
   const formData = new FormData();
   formData.append("full_name", payload.full_name.trim());

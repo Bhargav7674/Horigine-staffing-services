@@ -61,7 +61,7 @@ export default function InquiryFormSection({
             <option value="" disabled>
               Select an option...
             </option>
-            <option value="IT Services">IT Services</option>
+            <option value="IT Services">IT Solutions</option>
             <option value="IT Staffing">IT Staffing</option>
             <option value="Contract Staffing">Contract Staffing</option>
             <option value="Full-time / Direct Hire">

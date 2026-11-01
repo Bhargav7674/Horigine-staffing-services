@@ -16,25 +16,35 @@ export default function HeroSection() {
     }
 
     let index = 0;
-    let timeout = 0;
+    let timeoutId: number | undefined;
     let isDeleting = false;
+
     const animateText = () => {
       index += isDeleting ? -1 : 1;
       setVisibleCharacters(index);
 
-      if (index === animatedHeading.length) {
+      if (index >= animatedHeading.length) {
         isDeleting = true;
-        timeout = window.setTimeout(animateText, 1100);
-      } else if (index === 0) {
-        isDeleting = false;
-        timeout = window.setTimeout(animateText, 350);
-      } else {
-        timeout = window.setTimeout(animateText, isDeleting ? 35 : 65);
+        timeoutId = window.setTimeout(animateText, 1100);
+        return;
       }
+
+      if (index <= 0) {
+        isDeleting = false;
+        timeoutId = window.setTimeout(animateText, 350);
+        return;
+      }
+
+      timeoutId = window.setTimeout(animateText, isDeleting ? 35 : 65);
     };
 
-    timeout = window.setTimeout(animateText, 65);
-    return () => window.clearTimeout(timeout);
+    timeoutId = window.setTimeout(animateText, 65);
+
+    return () => {
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    };
   }, []);
 
   return (
@@ -42,7 +52,13 @@ export default function HeroSection() {
       <div>
         <span className="eyebrow">Expert IT Solutions</span>
         <h1 className="hero-heading-copy" aria-label={heading}>
-          <span aria-hidden="true">
+          <span
+            aria-hidden="true"
+            style={{
+              display: "inline-block",
+              whiteSpace: "pre-wrap",
+            }}
+          >
             {headingPrefix}
             <span className="gradient-text">
               {animatedHeading.slice(0, visibleCharacters)}
@@ -50,7 +66,7 @@ export default function HeroSection() {
           </span>
         </h1>
         <p>
-          Horigine Staffing offers a dual focus on high-impact IT services and
+          Horigine Staffing offers a dual focus on high-impact IT solutions and
           expert staffing solutions. We partner with startups to Fortune 500
           companies, connecting them with pre-vetted, top-tier IT talent and
           delivering robust software solutions.

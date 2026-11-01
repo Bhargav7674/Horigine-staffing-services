@@ -1,0 +1,48 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#EAF3F8"/>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="54" y="42" width="1092" height="716" rx="26" fill="#071B2C" fill-opacity="0.94"/>
+  <rect x="90" y="78" width="1020" height="64" rx="16" fill="#0B2A3E"/>
+  <text x="122" y="120" fill="#EAFBFF" font-size="40" font-family="Segoe UI, Arial, sans-serif" font-weight="700">ENTERPRISE CRM &amp; SALESFORCE INTEGRATION ECOSYSTEM</text>
+  <g opacity="0.9">
+    <rect x="116" y="176" width="344" height="240" rx="14" fill="#0D2D41" stroke="#34D7F4" stroke-opacity="0.8"/>
+    <rect x="126" y="186" width="90" height="12" rx="6" fill="#4ED9F6"/>
+    <rect x="130" y="216" width="108" height="12" rx="6" fill="#5B7F9E"/>
+    <rect x="130" y="246" width="90" height="12" rx="6" fill="#5B7F9E"/>
+    <rect x="130" y="284" width="96" height="44" rx="10" fill="#0A1F31"/>
+    <rect x="238" y="284" width="96" height="44" rx="10" fill="#0A1F31"/>
+    <rect x="346" y="284" width="96" height="44" rx="10" fill="#0A1F31"/>
+    <path d="M145 404C177 366 201 363 230 392C255 418 290 430 336 388C375 350 395 354 424 389V488H145V404Z" fill="#34D7F4" fill-opacity="0.12"/>
+    <path d="M145 420L190 384L238 405L294 350L361 398L424 372V488H145V420Z" fill="#37DDF3" fill-opacity="0.24"/>
+  </g>
+  <g opacity="0.9">
+    <rect x="492" y="176" width="570" height="452" rx="16" fill="#0C2B3F" stroke="#3ADCE6" stroke-opacity="0.7"/>
+    <circle cx="570" cy="280" r="30" fill="#2AD6D0" fill-opacity="0.16"/>
+    <circle cx="642" cy="280" r="30" fill="#2AD6D0" fill-opacity="0.16"/>
+    <circle cx="714" cy="280" r="30" fill="#2AD6D0" fill-opacity="0.16"/>
+    <circle cx="786" cy="280" r="30" fill="#2AD6D0" fill-opacity="0.16"/>
+    <circle cx="858" cy="280" r="30" fill="#2AD6D0" fill-opacity="0.16"/>
+    <circle cx="930" cy="280" r="30" fill="#2AD6D0" fill-opacity="0.16"/>
+    <path d="M530 364C580 307 616 297 656 332C700 370 724 360 770 324C812 292 838 308 890 340C920 359 942 396 976 428V570H530V364Z" fill="#35E1F5" fill-opacity="0.2"/>
+    <path d="M530 388L572 356L623 372L664 340L720 362L774 320L832 342L892 298L953 334L977 366V570H530V388Z" fill="#5ADFF9" fill-opacity="0.28"/>
+    <rect x="520" y="216" width="200" height="16" rx="8" fill="#72EFFB" fill-opacity="0.7"/>
+    <rect x="792" y="216" width="138" height="16" rx="8" fill="#72EFFB" fill-opacity="0.7"/>
+  </g>
+  <g opacity="0.88">
+    <rect x="116" y="462" width="344" height="240" rx="14" fill="#0B2A3C" stroke="#3ADCE6" stroke-opacity="0.7"/>
+    <path d="M150 620C192 557 206 546 258 570C308 593 331 583 394 519V636H150V620Z" fill="#41D7EC" fill-opacity="0.18"/>
+    <circle cx="206" cy="540" r="12" fill="#34D7F4"/>
+    <circle cx="250" cy="498" r="12" fill="#34D7F4"/>
+    <circle cx="296" cy="524" r="12" fill="#34D7F4"/>
+    <circle cx="344" cy="486" r="12" fill="#34D7F4"/>
+    <path d="M206 540L250 498L296 524L344 486" stroke="#78F4FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="146" y="526" fill="#D9F9FF" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">95,600</text>
+    <text x="146" y="610" fill="#AEEBFF" font-family="Segoe UI, Arial, sans-serif" font-size="18">Conversion rate</text>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DDEAF3"/>
+      <stop offset="1" stop-color="#B6D1E8"/>
+    </linearGradient>
+  </defs>
+</svg>

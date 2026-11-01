@@ -20,7 +20,7 @@ export default function AboutUs() {
         <ScrollReveal>
           <div className="about-dual container">
             <article className="glass-card">
-              <span className="eyebrow">IT Services</span>
+              <span className="eyebrow">IT Solutions</span>
               <h2>We build technology directly</h2>
               <p>
                 Software, cloud, and data projects delivered by people who’ve

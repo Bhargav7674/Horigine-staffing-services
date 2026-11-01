@@ -5,8 +5,8 @@ export default function ServicesHeroSection() {
       <div>
         <span className="eyebrow">IT Solutions &amp; Staffing</span>
         <h1>
-          Comprehensive IT Solutions That Deliver{" "}
-          <span className="gradient-text">Results</span>
+          Comprehensive IT Solutions That
+          <span className="services-highlight"> Deliver Results</span>
         </h1>
         <p>
           Empowering enterprises with cutting-edge technology services and elite

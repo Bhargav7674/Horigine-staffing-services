@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -11,11 +11,12 @@ export default function Footer() {
               <img src="/images/horigine-logo.png" alt="Horigine logo" />
             </Link>
             <p>
-              Horigine Staffing is a specialized recruitment firm focused on
-              connecting businesses with top-tier talent in AWS, .NET, and
-              Salesforce. With a commitment to quality, speed, and personalized
-              service, we help companies build high-performing teams that
-              deliver real results.
+              Horigine Staffing is a specialized recruitment and consulting firm
+              focused on connecting businesses with top-tier talent across
+              Salesforce, Java, React, and cloud-enabled technology platforms.
+              With a commitment to quality, speed, and personalized service, we
+              help companies build high-performing teams that deliver real
+              results.
             </p>
           </div>
           <div>
@@ -27,9 +28,7 @@ export default function Footer() {
           </div>
           <div>
             <h3>Services</h3>
-            <Link to="/services">
-              Managed IT Solutions
-            </Link>
+            <Link to="/services">Managed IT Solutions</Link>
             <Link to="/services">Staffing Services</Link>
           </div>
           <div>
@@ -41,11 +40,37 @@ export default function Footer() {
               India
             </address>
             <div className="footer-social-links">
-              <a href="https://www.facebook.com/" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/"
+                aria-label="Facebook"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Facebook size={14} />
               </a>
-              <a href="https://www.linkedin.com/" aria-label="LinkedIn">
+              <a
+                href="https://www.instagram.com/"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Instagram size={14} />
+              </a>
+              <a
+                href="https://www.linkedin.com/"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Linkedin size={14} />
+              </a>
+              <a
+                href="https://x.com/"
+                aria-label="Twitter"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Twitter size={14} />
               </a>
             </div>
             <a
