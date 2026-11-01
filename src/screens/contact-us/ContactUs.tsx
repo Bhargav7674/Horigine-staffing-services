@@ -54,6 +54,12 @@ export default function ContactUs() {
       return;
     }
 
+    if (payload.message.length < 10) {
+      setIsError(true);
+      setNotice("Message must be at least 10 characters long.");
+      return;
+    }
+
     setIsSubmitting(true);
     setNotice("");
     setIsError(false);

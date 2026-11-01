@@ -66,7 +66,7 @@ export default function HeroSection() {
           </span>
         </h1>
         <p>
-          Horigine Staffing offers a dual focus on high-impact IT solutions and
+          Horigine offers a dual focus on high-impact IT solutions and
           expert staffing solutions. We partner with startups to Fortune 500
           companies, connecting them with pre-vetted, top-tier IT talent and
           delivering robust software solutions.

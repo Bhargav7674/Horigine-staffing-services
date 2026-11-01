@@ -1,9 +1,9 @@
 .home-hero {
-  padding: 62px 0 54px;
+  padding: 52px 0 54px;
   display: grid;
   grid-template-columns: 1fr 0.95fr;
   align-items: center;
-  gap: 48px;
+  gap: 24px;
   min-height: 440px;
 }
 .home-hero > div:first-child {
@@ -13,19 +13,20 @@
   font-size: clamp(2.2rem, 4.2vw, 4rem);
   line-height: 0.95;
   letter-spacing: -0.04em;
-  margin: 18px 0 8px;
-  min-height: 4.2em;
+  margin: 18px 0 18px;
+  min-height: 0;
   display: flex;
   align-items: flex-start;
 }
 .hero-heading-copy {
   display: block;
-  min-height: 1.2em;
-  line-height: 0.9;
+  min-height: 0;
+  line-height: 0.95;
 }
 .hero-heading-copy > span {
   display: inline;
   white-space: normal;
+  line-height: 1.05;
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-heading-copy::after {
@@ -38,7 +39,7 @@
   color: #c0c7d5;
   font-size: 14px;
   line-height: 1.7;
-  margin-top: 0;
+  margin-top: 14px;
   margin-bottom: 0;
 }
 .hero-actions {

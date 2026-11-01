@@ -18,6 +18,7 @@ export type InquiryResponse = {
 type InquiryValidationDetail = {
   loc?: Array<string | number>;
   msg?: string;
+  message?: string;
   type?: string;
   input?: string;
   ctx?: Record<string, unknown>;
@@ -61,9 +62,14 @@ export async function submitInquiry(payload: InquiryRequest): Promise<InquiryRes
     }
 
     if (response.status === 422) {
-      const detailList = Array.isArray(data?.detail) ? data.detail : [];
+      const detailList = Array.isArray(data?.detail)
+        ? data.detail
+        : Array.isArray(data?.error?.details)
+          ? data.error.details
+          : [];
+
       const validationMessage = detailList
-        .map((item: InquiryValidationDetail) => item?.msg || "Validation error")
+        .map((item: InquiryValidationDetail) => item?.msg || item?.message || "Validation error")
         .join(". ");
 
       throw new InquiryApiError(
@@ -76,7 +82,9 @@ export async function submitInquiry(payload: InquiryRequest): Promise<InquiryRes
     const fallbackMessage =
       typeof data?.message === "string"
         ? data.message
-        : "Something went wrong while sending your inquiry.";
+        : typeof data?.error?.message === "string"
+          ? data.error.message
+          : "Something went wrong while sending your inquiry.";
 
     throw new InquiryApiError(fallbackMessage, response.status);
   } catch (error) {

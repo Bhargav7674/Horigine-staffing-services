@@ -80,6 +80,7 @@ export default function InquiryFormSection({
             onChange={(event) => updateField("message", event.target.value)}
             placeholder="How can we help you?"
             rows={5}
+            minLength={10}
             required
           />
         </label>
