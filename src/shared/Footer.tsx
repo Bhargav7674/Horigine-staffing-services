@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
         <div className="footer-bottom container">
           <span>© 2025 Horigine | All rights reserved</span>
-          <span>Website designed by Amul Infotech.</span>
+          <span></span>
         </div>
       </footer>
       <a
