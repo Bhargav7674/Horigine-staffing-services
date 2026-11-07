@@ -84,6 +84,15 @@
     radial-gradient(circle at center, rgba(0, 206, 209, 0.14), transparent 54%),
     linear-gradient(145deg, #1b2631, #151a22);
 }
+.project-detail-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.9;
+}
 .project-visual-orbit {
   position: absolute;
   border: 1px solid rgba(63, 219, 226, 0.22);
@@ -97,17 +106,6 @@
   width: 155px;
   border-style: dashed;
   transform: rotate(25deg);
-}
-.project-visual-icon {
-  width: 116px;
-  height: 116px;
-  border-radius: 28px;
-  display: grid;
-  place-items: center;
-  color: #53e0e5;
-  background: linear-gradient(145deg, #253e49, #202b38);
-  border: 1px solid rgba(80, 221, 228, 0.3);
-  box-shadow: 0 0 70px rgba(0, 206, 209, 0.1);
 }
 .project-visual-number {
   position: absolute;

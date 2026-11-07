@@ -12,7 +12,6 @@ export default function ProjectDetail() {
 
   if (!project) return <Navigate to="/services" replace />;
 
-  const Icon = project.icon;
   const nextProject =
     clientProjects[
       (clientProjects.findIndex((item) => item.id === project.id) + 1) %
@@ -43,9 +42,11 @@ export default function ProjectDetail() {
             <div className="project-detail-visual" aria-hidden="true">
               <div className="project-visual-orbit orbit-one" />
               <div className="project-visual-orbit orbit-two" />
-              <div className="project-visual-icon">
-                <Icon size={56} strokeWidth={1.35} />
-              </div>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="project-detail-image"
+              />
               <span className="project-visual-number">{project.number}</span>
             </div>
           </section>

@@ -8,7 +8,7 @@ export default function AboutSection() {
         <span className="eyebrow">About Us</span>
         <h2>Shaping Teams with Precision and Purpose</h2>
         <p>
-          Horigine Staffing is a fast-growing talent solutions company committed
+          Horigine is a fast-growing talent solutions company committed
           to connecting top IT professionals with leading global clients. We
           specialize in niche technology hiring and workforce solutions, driven
           by quality, speed, and integrity to help professionals grow and

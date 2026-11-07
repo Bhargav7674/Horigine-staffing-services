@@ -17,37 +17,33 @@ export default function ClientProjectsSection() {
         </p>
       </div>
       <div className="client-project-grid">
-        {clientProjects.map((project) => {
-          const Icon = project.icon;
-
-          return (
-            <Link
-              className="glass-card client-project-card"
-              to={`/services/projects/${project.id}`}
-              key={project.id}
-            >
-              <div className="client-project-top">
-                <span className="client-project-icon">
-                  <Icon size={21} />
-                </span>
-                <span className="client-project-number">{project.number}</span>
-              </div>
-              <span className="client-project-category">
-                {project.category}
-              </span>
-              <h3>{project.title}</h3>
-              <p>{project.summary}</p>
-              <div className="client-project-tags">
-                {project.tags.slice(0, 3).map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-              <span className="client-project-link">
-                View project details <ArrowUpRight size={16} />
-              </span>
-            </Link>
-          );
-        })}
+        {clientProjects.map((project) => (
+          <Link
+            className="glass-card client-project-card"
+            to={`/services/projects/${project.id}`}
+            key={project.id}
+          >
+            <div className="client-project-image-wrap">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="client-project-image"
+              />
+              <span className="client-project-number">{project.number}</span>
+            </div>
+            <span className="client-project-category">{project.category}</span>
+            <h3>{project.title}</h3>
+            <p>{project.summary}</p>
+            <div className="client-project-tags">
+              {project.tags.slice(0, 3).map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+            <span className="client-project-link">
+              View project details <ArrowUpRight size={16} />
+            </span>
+          </Link>
+        ))}
       </div>
     </section>
   );

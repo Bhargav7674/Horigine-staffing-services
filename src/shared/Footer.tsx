@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Instagram, Linkedin, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -11,12 +11,12 @@ export default function Footer() {
               <img src="/images/horigine-logo.png" alt="Horigine logo" />
             </Link>
             <p>
-              Horigine Staffing is a specialized recruitment and consulting firm
-              focused on connecting businesses with top-tier talent across
-              Salesforce, Java, React, and cloud-enabled technology platforms.
-              With a commitment to quality, speed, and personalized service, we
-              help companies build high-performing teams that deliver real
-              results.
+              Horigine delivers end-to-end IT solutions and staffing services,
+              helping businesses hire skilled professionals and build resilient,
+              future-ready technology teams. We connect organizations with top
+              talent across Salesforce, Java, React, cloud platforms, and
+              modern digital transformation initiatives—backed by a commitment
+              to quality, speed, and personalized support.
             </p>
           </div>
           <div>
@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
           <div>
             <h3>Contact Us</h3>
-            <a href="tel:+918001234567">+91 800 123 4567</a>
+            <a href="tel:+919059988259">+91 90599 88259</a>
             <a href="mailto:hello@horigine.com">hello@horigine.com</a>
             <address>
               Tech Park Phase II, Autonagar, Vijayawada, Andhra Pradesh 520007,
@@ -41,15 +41,7 @@ export default function Footer() {
             </address>
             <div className="footer-social-links">
               <a
-                href="https://www.facebook.com/"
-                aria-label="Facebook"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Facebook size={14} />
-              </a>
-              <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/horiginestaffing?vrfl=NnF4eHp5djh1eHBv"
                 aria-label="Instagram"
                 target="_blank"
                 rel="noreferrer"
@@ -57,7 +49,7 @@ export default function Footer() {
                 <Instagram size={14} />
               </a>
               <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/company/horiginestaffing/"
                 aria-label="LinkedIn"
                 target="_blank"
                 rel="noreferrer"
@@ -65,12 +57,12 @@ export default function Footer() {
                 <Linkedin size={14} />
               </a>
               <a
-                href="https://x.com/"
-                aria-label="Twitter"
+                href="https://youtube.com/@horiginestaffing?si=Uelf_OHMn0bsolAM"
+                aria-label="YouTube"
                 target="_blank"
                 rel="noreferrer"
               >
-                <Twitter size={14} />
+                <Youtube size={14} />
               </a>
             </div>
             <a
@@ -84,13 +76,13 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom container">
-          <span>© 2025 Horigine Staffing | All rights reserved</span>
+          <span>© 2025 Horigine | All rights reserved</span>
           <span>Website designed by Amul Infotech.</span>
         </div>
       </footer>
       <a
         className="floating-contact"
-        href="https://wa.me/"
+        href="https://wa.me/919059988259?text=Hello%20Horigine%20Staffing"
         target="_blank"
         rel="noreferrer"
         aria-label="Contact us on WhatsApp"

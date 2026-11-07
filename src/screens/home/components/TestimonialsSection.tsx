@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 
 const quotes = [
   [
-    "“Horigine Staffing delivered exactly what we needed — fast and reliable recruitment support. Their understanding of technical roles like AWS and .NET was truly impressive.”",
+    "“Horigine delivered exactly what we needed — fast and reliable recruitment support. Their understanding of technical roles like AWS and .NET was truly impressive.”",
     "Priya M.",
   ],
   [
-    "“We had a critical Salesforce role open for weeks. Horigine Staffing closed it within days with a perfect candidate. Highly recommend their focused approach.”",
+    "“We had a critical Salesforce role open for weeks. Horigine closed it within days with a perfect candidate. Highly recommend their focused approach.”",
     "Arjun Deshmukh",
   ],
   [
