@@ -3,9 +3,9 @@ import { Mail, MapPin, Phone } from "lucide-react";
 const contactDetails = [
   {
     label: "Call Us",
-    value: "+91 800 123 4567",
+    value: "+91 90599 88259",
     note: "Mon - Fri, 9:00 AM - 6:00 PM IST",
-    href: "tel:+918001234567",
+    href: "tel:+91 9059988259",
     icon: Phone,
   },
   {
