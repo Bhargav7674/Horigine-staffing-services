@@ -89,9 +89,8 @@
 .site-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   background:
-    radial-gradient(ellipse at 85% 10%, rgba(0, 48, 130, 0.22), transparent 45%),
-    radial-gradient(ellipse at 5% 80%, rgba(0, 206, 209, 0.05), transparent 40%),
-    #050b19;
+    linear-gradient(180deg, rgba(4, 9, 18, 0.82), rgba(4, 9, 18, 0.92)),
+    url('/images/about-team.png') center/cover no-repeat;
   padding: 54px 0 20px;
   position: relative;
 }
