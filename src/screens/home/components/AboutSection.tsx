@@ -14,6 +14,11 @@ export default function AboutSection() {
           by quality, speed, and integrity to help professionals grow and
           businesses succeed.
         </p>
+        <p>
+          We bring together technology delivery and technical staffing under one
+          roof, helping businesses build strong teams, modern systems, and
+          reliable execution without compromising quality or speed.
+        </p>
         <a className="outline-button" href="/about-us">
           Explore More →
         </a>

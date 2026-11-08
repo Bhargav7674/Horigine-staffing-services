@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { Reveal, RevealLines } from "./Reveal";
 
 const quotes = [
   [
@@ -26,11 +28,26 @@ const quotes = [
     "David L.",
   ],
 ];
+
+const PER_PAGE = 3;
+
+const initials = (name: string) =>
+  name
+    .replace(/\./g, "")
+    .split(" ")
+    .map((part) => part[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+
 export default function TestimonialsSection() {
   const [activePage, setActivePage] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
-  const pageCount = Math.ceil(quotes.length / 3);
+  const pageCount = Math.ceil(quotes.length / PER_PAGE);
+
+  const go = (step: number) =>
+    setActivePage((page) => (page + step + pageCount) % pageCount);
 
   useEffect(() => {
     if (
@@ -39,99 +56,147 @@ export default function TestimonialsSection() {
     ) {
       return;
     }
-
-    const interval = window.setInterval(() => {
-      setActivePage((page) => (page + 1) % pageCount);
-    }, 5000);
-
+    const interval = window.setInterval(() => go(1), 5000);
     return () => window.clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPaused, pageCount]);
 
   return (
-    <section className="container section-space">
-      <div className="section-heading">
-        <span className="eyebrow">What Our Clients Say</span>
-        <h2>Trusted by Teams. Recommended by Leaders.</h2>
+    <section className="container testi-section" id="testimonials">
+      <div className="testi-heading">
+        <Reveal as="span" className="testi-eyebrow">
+          <i aria-hidden="true" />
+          What Our Clients Say
+        </Reveal>
+
+        <RevealLines
+          as="h2"
+          lines={[
+            "Trusted by Teams.",
+            <>
+              <span className="testi-gradient">Recommended by Leaders.</span>
+            </>,
+          ]}
+        />
+        <Reveal className="testi-swoosh" delay={400}>
+          <span />
+        </Reveal>
       </div>
-      <div
-        className="testimonial-carousel-controls"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onFocusCapture={() => setIsPaused(true)}
-        onBlurCapture={(event) => {
-          if (
-            !event.currentTarget.contains(event.relatedTarget as Node | null)
-          ) {
-            setIsPaused(false);
-          }
-        }}
-      >
+
+      <Reveal delay={150}>
         <div
-          className="testimonial-carousel"
-          onTouchStart={(event) => {
-            touchStartX.current = event.changedTouches[0].clientX;
-          }}
-          onTouchEnd={(event) => {
-            if (touchStartX.current === null) return;
-            const touchDistance =
-              touchStartX.current - event.changedTouches[0].clientX;
-
-            if (Math.abs(touchDistance) > 40) {
-              setActivePage(
-                (page) =>
-                  (page + Math.sign(touchDistance) + pageCount) % pageCount,
-              );
+          className="testi-controls"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocusCapture={() => setIsPaused(true)}
+          onBlurCapture={(event) => {
+            if (
+              !event.currentTarget.contains(event.relatedTarget as Node | null)
+            ) {
+              setIsPaused(false);
             }
-
-            touchStartX.current = null;
           }}
         >
           <div
-            className="testimonial-track"
-            style={{ transform: `translateX(-${activePage * 100}%)` }}
-            aria-live="polite"
+            className="testi-carousel"
+            onTouchStart={(event) => {
+              touchStartX.current = event.changedTouches[0].clientX;
+            }}
+            onTouchEnd={(event) => {
+              if (touchStartX.current === null) return;
+              const distance =
+                touchStartX.current - event.changedTouches[0].clientX;
+              if (Math.abs(distance) > 40) go(Math.sign(distance));
+              touchStartX.current = null;
+            }}
           >
-            {Array.from({ length: pageCount }, (_, pageIndex) => (
-              <div
-                className="testimonial-slide"
-                key={pageIndex}
-                aria-label={`Testimonials ${pageIndex * 3 + 1} to ${Math.min(
-                  pageIndex * 3 + 3,
-                  quotes.length,
-                )}`}
-              >
-                {quotes
-                  .slice(pageIndex * 3, pageIndex * 3 + 3)
-                  .map(([q, n]) => (
-                    <article className="glass-card testimonial-card" key={n}>
-                      <p>{q}</p>
-                      <b>— {n}</b>
-                    </article>
-                  ))}
-              </div>
-            ))}
+            <div
+              className="testi-track"
+              style={{ transform: `translateX(-${activePage * 100}%)` }}
+              aria-live="polite"
+            >
+              {Array.from({ length: pageCount }, (_, pageIndex) => (
+                <div
+                  className="testi-slide"
+                  key={pageIndex}
+                  aria-label={`Testimonials ${pageIndex * PER_PAGE + 1} to ${Math.min(
+                    pageIndex * PER_PAGE + PER_PAGE,
+                    quotes.length,
+                  )}`}
+                >
+                  {quotes
+                    .slice(pageIndex * PER_PAGE, pageIndex * PER_PAGE + PER_PAGE)
+                    .map(([quote, name], i) => (
+                      <article
+                        className={`testi-card ${
+                          (pageIndex * PER_PAGE + i) % 2 === 0
+                            ? "testi-teal"
+                            : "testi-gold"
+                        }`}
+                        key={name}
+                      >
+                        <span className="testi-quote-icon">
+                          <Quote size={26} strokeWidth={2} />
+                        </span>
+
+                        <div className="testi-stars" aria-label="5 out of 5 stars">
+                          {Array.from({ length: 5 }, (_, s) => (
+                            <Star key={s} size={16} fill="currentColor" strokeWidth={0} />
+                          ))}
+                        </div>
+
+                        <p>{quote}</p>
+
+                        <footer className="testi-author">
+                          <span className="testi-avatar">{initials(name)}</span>
+                          <div>
+                            <b>{name}</b>
+                            <small>Verified Client</small>
+                          </div>
+                        </footer>
+                      </article>
+                    ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="testi-nav">
+            <button
+              type="button"
+              className="testi-arrow"
+              aria-label="Previous testimonials"
+              onClick={() => go(-1)}
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <div className="testi-dots" aria-label="Choose testimonial page">
+              {Array.from({ length: pageCount }, (_, pageIndex) => (
+                <button
+                  aria-label={`Show testimonial page ${pageIndex + 1}`}
+                  aria-current={activePage === pageIndex ? "true" : undefined}
+                  className={
+                    activePage === pageIndex ? "testi-dot testi-dot-active" : "testi-dot"
+                  }
+                  key={pageIndex}
+                  onClick={() => setActivePage(pageIndex)}
+                  type="button"
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className="testi-arrow"
+              aria-label="Next testimonials"
+              onClick={() => go(1)}
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
         </div>
-        <div
-          className="testimonial-pagination"
-          aria-label="Choose testimonial page"
-        >
-          {Array.from({ length: pageCount }, (_, pageIndex) => (
-            <button
-              aria-label={`Show testimonial page ${pageIndex + 1}`}
-              aria-current={activePage === pageIndex ? "true" : undefined}
-              className={
-                activePage === pageIndex
-                  ? "testimonial-dot testimonial-dot-active"
-                  : "testimonial-dot"
-              }
-              key={pageIndex}
-              onClick={() => setActivePage(pageIndex)}
-              type="button"
-            />
-          ))}
-        </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -20,39 +20,39 @@ type ClientProject = {
 
 export const clientProjects: ClientProject[] = [
   {
-    id: "notification-opcode-development",
-    number: "01",
-    category: "Enterprise platform integration",
-    title: "Notification & Opcode Development",
+    id: "salesforce-commerce-cloud",
+    number: "03",
+    category: "Salesforce Commerce Cloud",
+    title: "Global Commerce & Omnichannel Service",
     summary:
-      "Customized notification processing, opcode functionality, and REST API integrations built around specific business requirements.",
+      "A global storefront and integration platform connecting localized commerce, enterprise systems, security, and customer service operations.",
     overview:
-      "Delivered a tailored platform implementation spanning PODL and Classes development, policy customization, Opcode NAP configuration, notification processing, and REST API integration. Customization and integration testing ensured each part worked together for the required business workflows.",
-    image: "/images/Notification.png",
-    tags: ["PODL & Classes", "REST APIs", "Policy customization", "Opcode NAP"],
+      "A Salesforce Commerce Cloud implementation built around a reusable global storefront architecture and market-specific experiences. The solution connected commerce with lead sources, ERPs, marketing platforms, and Service Cloud while strengthening security monitoring and service-agent context.",
+    image: "/images/Global%20Commerce.png",
+    tags: ["Commerce Cloud", "Service Cloud", "REST / GraphQL", "Shield"],
     sections: [
       {
-        heading: "PODL, Classes, and policy customization",
+        heading: "Global storefront and enterprise integrations",
         points: [
-          "Develop and customize PODL and Classes to meet notification and opcode requirements.",
-          "Align application policies with business-specific behavior and processing rules.",
-          "Configure Opcode NAP files to support the required application workflows.",
+          "Create a reusable global storefront template to accelerate regional launches while preserving brand consistency.",
+          "Configure regional currencies, tax rules, language translations, and country-specific checkout journeys.",
+          "Connect lead sourcing platforms, legacy ERPs, and marketing endpoints through secure REST and GraphQL integrations.",
         ],
       },
       {
-        heading: "REST API integration and notification processing",
+        heading: "Security and omnichannel service",
         points: [
-          "Design REST APIs for system integration and reliable data communication.",
-          "Implement and enhance requirement-specific notification processing and configuration.",
-          "Test, troubleshoot, and validate integrated functionality against project requirements.",
+          "Configure Salesforce Shield encryption, event monitoring, and field audit trails, and monitor security posture across environments.",
+          "Use Data Cloud insights to monitor platform performance and customer journeys.",
+          "Route high-value service requests to specialist agents and provide a unified view of customer and order history.",
         ],
       },
     ],
     outcomes: [
-      "Delivered business-specific notification processing and opcode functionality.",
-      "Enabled API-based communication between integrated systems.",
-      "Validated customized policies, PODL, Classes, and Opcode NAP configuration.",
-      "Provided an integrated solution tested against the requested requirements.",
+      "Established a repeatable storefront foundation for regional expansion.",
+      "Enabled localized shopping and checkout experiences across markets.",
+      "Improved visibility into security posture, platform activity, and customer journeys.",
+      "Equipped service teams with context for faster, more informed customer support.",
     ],
   },
   {
@@ -92,39 +92,39 @@ export const clientProjects: ClientProject[] = [
     ],
   },
   {
-    id: "salesforce-commerce-cloud",
-    number: "03",
-    category: "Salesforce Commerce Cloud",
-    title: "Global Commerce & Omnichannel Service",
+    id: "notification-opcode-development",
+    number: "01",
+    category: "Enterprise platform integration",
+    title: "Notification & Opcode Development",
     summary:
-      "A global storefront and integration platform connecting localized commerce, enterprise systems, security, and customer service operations.",
+      "Customized notification processing, opcode functionality, and REST API integrations built around specific business requirements.",
     overview:
-      "A Salesforce Commerce Cloud implementation built around a reusable global storefront architecture and market-specific experiences. The solution connected commerce with lead sources, ERPs, marketing platforms, and Service Cloud while strengthening security monitoring and service-agent context.",
-    image: "/images/Global%20Commerce.png",
-    tags: ["Commerce Cloud", "Service Cloud", "REST / GraphQL", "Shield"],
+      "Delivered a tailored platform implementation spanning PODL and Classes development, policy customization, Opcode NAP configuration, notification processing, and REST API integration. Customization and integration testing ensured each part worked together for the required business workflows.",
+    image: "/images/Notification.png",
+    tags: ["PODL & Classes", "REST APIs", "Policy customization", "Opcode NAP"],
     sections: [
       {
-        heading: "Global storefront and enterprise integrations",
+        heading: "PODL, Classes, and policy customization",
         points: [
-          "Create a reusable global storefront template to accelerate regional launches while preserving brand consistency.",
-          "Configure regional currencies, tax rules, language translations, and country-specific checkout journeys.",
-          "Connect lead sourcing platforms, legacy ERPs, and marketing endpoints through secure REST and GraphQL integrations.",
+          "Develop and customize PODL and Classes to meet notification and opcode requirements.",
+          "Align application policies with business-specific behavior and processing rules.",
+          "Configure Opcode NAP files to support the required application workflows.",
         ],
       },
       {
-        heading: "Security and omnichannel service",
+        heading: "REST API integration and notification processing",
         points: [
-          "Configure Salesforce Shield encryption, event monitoring, and field audit trails, and monitor security posture across environments.",
-          "Use Data Cloud insights to monitor platform performance and customer journeys.",
-          "Route high-value service requests to specialist agents and provide a unified view of customer and order history.",
+          "Design REST APIs for system integration and reliable data communication.",
+          "Implement and enhance requirement-specific notification processing and configuration.",
+          "Test, troubleshoot, and validate integrated functionality against project requirements.",
         ],
       },
     ],
     outcomes: [
-      "Established a repeatable storefront foundation for regional expansion.",
-      "Enabled localized shopping and checkout experiences across markets.",
-      "Improved visibility into security posture, platform activity, and customer journeys.",
-      "Equipped service teams with context for faster, more informed customer support.",
+      "Delivered business-specific notification processing and opcode functionality.",
+      "Enabled API-based communication between integrated systems.",
+      "Validated customized policies, PODL, Classes, and Opcode NAP configuration.",
+      "Provided an integrated solution tested against the requested requirements.",
     ],
   },
 ];

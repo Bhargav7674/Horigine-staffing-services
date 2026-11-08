@@ -10,9 +10,9 @@ const contactDetails = [
   },
   {
     label: "Email",
-    value: "hello@horigine.com",
+    value: "Hr@horigineitsolutions.com",
     note: "We aim to respond within 24 hours.",
-    href: "mailto:hello@horigine.com",
+    href: "mailto:Hr@horigineitsolutions.com",
     icon: Mail,
   },
 ];

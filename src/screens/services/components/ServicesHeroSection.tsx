@@ -1,12 +1,36 @@
 import { ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const rotatingResultLines = [
+  "Deliver Results",
+  "Drive Growth",
+  "Build Momentum",
+];
+
 export default function ServicesHeroSection() {
+  const [resultIndex, setResultIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setResultIndex((current) => (current + 1) % rotatingResultLines.length);
+    }, 2400);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const currentResult = rotatingResultLines[resultIndex];
+
   return (
     <section className="container services-hero">
       <div>
         <span className="eyebrow">IT Solutions &amp; Staffing</span>
         <h1>
-          Comprehensive IT Solutions That
-          <span className="services-highlight"> Deliver Results</span>
+          Comprehensive IT
+          <br />
+          Solutions That
+          <span className="services-highlight" aria-live="polite">
+            <span className="services-highlight-line">{currentResult}</span>
+          </span>
         </h1>
         <p>
           Empowering enterprises with cutting-edge technology services and elite

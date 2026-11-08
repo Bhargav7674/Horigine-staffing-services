@@ -1,0 +1,81 @@
+@keyframes rv-up {
+  from { opacity: 0; transform: translateY(34px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* hidden until its section scrolls into view */
+.rv-pending .rv { opacity: 0; }
+
+/* then each item loads one after another */
+.rv-in .rv {
+  animation: rv-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  animation-delay: calc(var(--rv-i, 0) * 110ms);
+}
+
+/* ---------- progress bar ---------- */
+.sx-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 3px;
+  transform-origin: left;
+  background: linear-gradient(90deg, #00e0d0, #9be37a, #ffb81f);
+  pointer-events: none;
+}
+
+/* ---------- pagination dots ---------- */
+.sx-dots {
+  position: fixed;
+  top: 50%;
+  right: 18px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transform: translateY(-50%);
+}
+.sx-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition: height 0.3s ease, background 0.3s ease;
+}
+.sx-dot:hover { background: rgba(45, 227, 224, 0.7); }
+.sx-dot.is-active {
+  height: 28px;
+  background: linear-gradient(180deg, #00e0d0, #ffb81f);
+}
+.sx-label {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: rgba(6, 20, 27, 0.95);
+  border: 1px solid rgba(0, 206, 209, 0.4);
+  color: #f4f8fc;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.sx-dot:hover .sx-label,
+.sx-dot:focus-visible .sx-label { opacity: 1; }
+
+@media (max-width: 900px) {
+  .sx-dots { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rv-pending .rv { opacity: 1; }
+  .rv-in .rv { animation: none; }
+  .sx-dot { transition: none; }
+}

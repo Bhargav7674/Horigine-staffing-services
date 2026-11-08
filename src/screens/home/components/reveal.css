@@ -1,0 +1,71 @@
+:root {
+  --reveal-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes card-up {
+  from { opacity: 0; transform: translateY(44px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes line-up {
+  from { transform: translateY(110%); }
+  to   { transform: translateY(0); }
+}
+@keyframes word-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal:not(.is-in) { opacity: 0; }
+.reveal.is-in {
+  animation: reveal-up 0.85s var(--reveal-ease) var(--delay, 0ms) backwards;
+}
+
+.stagger:not(.is-in) > * { opacity: 0; }
+.stagger.is-in > * {
+  animation: card-up 0.8s var(--reveal-ease) backwards;
+  animation-delay: calc(var(--i, 0) * 130ms);
+}
+.stagger > *:nth-child(1) { --i: 0; }
+.stagger > *:nth-child(2) { --i: 1; }
+.stagger > *:nth-child(3) { --i: 2; }
+.stagger > *:nth-child(4) { --i: 3; }
+.stagger > *:nth-child(5) { --i: 4; }
+.stagger > *:nth-child(6) { --i: 5; }
+.stagger > *:nth-child(7) { --i: 6; }
+.stagger > *:nth-child(8) { --i: 7; }
+
+.lines .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.lines .line-inner {
+  display: inline-block;
+  transform: translateY(110%);
+}
+.lines.is-in .line-inner {
+  animation: line-up 0.9s var(--reveal-ease) both;
+  animation-delay: calc(var(--i, 0) * 150ms);
+}
+
+.words .word { display: inline; opacity: 0; }
+.words.is-in .word {
+  animation: word-in 0.6s ease both;
+  animation-delay: calc(var(--i, 0) * 35ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal:not(.is-in),
+  .stagger:not(.is-in) > *,
+  .words .word { opacity: 1; }
+  .lines .line-inner { transform: none; }
+  .reveal.is-in,
+  .stagger.is-in > *,
+  .lines.is-in .line-inner,
+  .words.is-in .word { animation: none; }
+}

@@ -23,13 +23,13 @@ export default function Home() {
           <HeroSection />
         </ScrollReveal>
         <ScrollReveal>
-          <StatsSection />
-        </ScrollReveal>
-        <ScrollReveal>
           <WhyChooseUsSection />
         </ScrollReveal>
         <ScrollReveal>
           <AboutSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <StatsSection />
         </ScrollReveal>
         <ScrollReveal>
           <ITServicesSection />

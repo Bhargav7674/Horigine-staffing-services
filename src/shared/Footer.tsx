@@ -34,7 +34,7 @@ export default function Footer() {
           <div>
             <h3>Contact Us</h3>
             <a href="tel:+919059988259">+91 90599 88259</a>
-            <a href="mailto:hello@horigine.com">hello@horigine.com</a>
+            <a href="mailto:Hr@horigineitsolutions.com">Hr@horigineitsolutions.com</a>
             <address>
               Tech Park Phase II, Autonagar, Vijayawada, Andhra Pradesh 520007,
               India
