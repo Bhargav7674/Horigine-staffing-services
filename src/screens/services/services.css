@@ -901,3 +901,245 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ===== IT SOLUTIONS: match IT Staffing alignment ===== */
+
+/* same column ratio and top alignment as staffing */
+.product-services-layout {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 28px;
+  align-items: start;
+}
+
+/* all 4 cards get the same height, even the CRM card with tags */
+.product-service-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 18px;
+}
+.product-card {
+  min-height: 250px;
+  height: 100%;
+  padding: 22px 22px 18px;
+  justify-content: center;
+}
+.product-card-tags {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* the staffing cards too, so both grids behave the same */
+.staffing-grid {
+  grid-auto-rows: 1fr;
+}
+.staffing-card {
+  height: 100%;
+}
+
+/* right-side text: same padding, heading size and spacing as staffing */
+.product-services-content {
+  min-height: 0;
+  justify-content: flex-start;
+  padding: 14px 10px 0;
+}
+.product-services-content h3 {
+  margin: 0 0 18px;
+  font-size: clamp(2.1rem, 2.5vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  max-width: none;
+}
+.product-services-content > p {
+  max-width: none;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* checklist: one column, same gap as staffing */
+.product-services-grid {
+  margin-top: 24px;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 1100px) {
+  .product-services-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  .product-service-cards {
+    grid-template-columns: 1fr;
+  }
+  .product-card {
+    min-height: 220px;
+  }
+}
+
+/* ===== CLIENT PROJECTS (report-card style) ===== */
+.client-projects-section { padding-top: 56px; overflow: clip; }
+
+.cp-heading { text-align: center; margin-bottom: 44px; }
+.cp-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 206, 209, 0.45);
+  background: rgba(0, 206, 209, 0.06);
+  color: #2de3e0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cp-eyebrow i { width: 10px; height: 10px; border-radius: 50%; background: #f5a623; }
+.cp-heading h2 {
+  margin: 20px 0 12px;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  color: #f4f8fc;
+}
+.cp-gradient {
+  background: linear-gradient(100deg, #00e0d0, #9be37a 55%, #ffb81f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.cp-heading p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: rgba(225, 235, 242, 0.85);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.cp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.cp-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  background: linear-gradient(160deg, rgba(9, 36, 46, 0.78), rgba(6, 18, 26, 0.92));
+  border: 1.5px solid rgba(0, 206, 209, 0.5);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.cp-card.cp-gold { border-color: rgba(245, 166, 35, 0.6); }
+.cp-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(45, 227, 224, 0.95);
+  box-shadow: 0 0 34px rgba(0, 206, 209, 0.22), 0 18px 40px rgba(0, 0, 0, 0.3);
+}
+.cp-card.cp-gold:hover {
+  border-color: rgba(255, 184, 31, 0.95);
+  box-shadow: 0 0 34px rgba(245, 166, 35, 0.22), 0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* thumbnail with coloured top bar */
+.cp-thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #06141b;
+}
+.cp-thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 2;
+  height: 4px;
+  background: linear-gradient(90deg, #00e0d0, #9be37a 60%, #ffb81f);
+}
+.cp-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.cp-card:hover .cp-thumb img { transform: scale(1.06); }
+
+.cp-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 24px 22px;
+}
+.cp-category {
+  color: #ffb81f;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+.cp-card h3 {
+  margin: 10px 0 0;
+  padding-bottom: 16px;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: #f4f8fc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  transition: color 0.25s ease;
+}
+.cp-card:hover h3 { color: #2de3e0; }
+.cp-card.cp-gold:hover h3 { color: #ffb81f; }
+
+.cp-card p {
+  margin: 16px 0 0;
+  color: rgba(225, 235, 242, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cp-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.cp-tags span {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  color: #6ce0e5;
+  background: rgba(0, 206, 209, 0.08);
+  border: 1px solid rgba(0, 206, 209, 0.2);
+}
+
+.cp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 20px;
+  color: #f4f8fc;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.cp-link svg { color: #2de3e0; transition: transform 0.25s ease; }
+.cp-card.cp-gold .cp-link svg { color: #ffb81f; }
+.cp-card:hover .cp-link svg { transform: translateX(5px); }
+
+@media (max-width: 1100px) {
+  .cp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .cp-grid { grid-template-columns: 1fr; gap: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cp-card, .cp-thumb img, .cp-link svg { transition: none; }
+}

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { clientProjects } from "../../../data/clientProjects";
 
@@ -8,40 +8,46 @@ export default function ClientProjectsSection() {
       className="container services-section client-projects-section"
       id="client-projects"
     >
-      <div className="section-heading">
-        <p className="project-eyebrow">Selected Implementations</p>
-        <h2>Client Projects</h2>
+      <div className="cp-heading">
+        <span className="cp-eyebrow">
+          <i aria-hidden="true" />
+          Selected Implementations
+        </span>
+        <h2>
+          Client <span className="cp-gradient">Projects</span>
+        </h2>
         <p>
           Explore representative implementations and technical work across cloud
           infrastructure, healthcare technology, and digital commerce.
         </p>
       </div>
-      <div className="client-project-grid">
-        {clientProjects.map((project) => (
+
+      <div className="cp-grid">
+        {clientProjects.map((project, i) => (
           <Link
-            className="glass-card client-project-card"
+            className={`cp-card ${i % 2 === 0 ? "cp-teal" : "cp-gold"}`}
             to={`/services/projects/${project.id}`}
             key={project.id}
           >
-            <div className="client-project-image-wrap">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="client-project-image"
-              />
-              <span className="client-project-number">{project.number}</span>
+            <div className="cp-thumb">
+              <img src={project.image} alt={project.title} loading="lazy" />
             </div>
-            <span className="client-project-category">{project.category}</span>
-            <h3>{project.title}</h3>
-            <p>{project.summary}</p>
-            <div className="client-project-tags">
-              {project.tags.slice(0, 3).map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
+
+            <div className="cp-body">
+              <span className="cp-category">{project.category}</span>
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+
+              <div className="cp-tags">
+                {project.tags.slice(0, 3).map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+
+              <span className="cp-link">
+                Know more <ArrowRight size={16} />
+              </span>
             </div>
-            <span className="client-project-link">
-              View project details <ArrowUpRight size={16} />
-            </span>
           </Link>
         ))}
       </div>

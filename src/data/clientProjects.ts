@@ -1,5 +1,3 @@
-import { type LucideIcon } from "lucide-react";
-
 type ProjectSection = {
   heading: string;
   points: string[];
@@ -28,7 +26,7 @@ export const clientProjects: ClientProject[] = [
       "A global storefront and integration platform connecting localized commerce, enterprise systems, security, and customer service operations.",
     overview:
       "A Salesforce Commerce Cloud implementation built around a reusable global storefront architecture and market-specific experiences. The solution connected commerce with lead sources, ERPs, marketing platforms, and Service Cloud while strengthening security monitoring and service-agent context.",
-    image: "/images/Global%20Commerce.png",
+    image: "/images/project-commerce.svg",
     tags: ["Commerce Cloud", "Service Cloud", "REST / GraphQL", "Shield"],
     sections: [
       {
@@ -64,7 +62,7 @@ export const clientProjects: ClientProject[] = [
       "End-to-end validation for a multi-facility diagnostic platform spanning medical devices, cloud APIs, mobile apps, and hospital systems.",
     overview:
       "An engineering and quality assurance program for an enterprise imaging and diagnostic management platform. Validation covered high-volume radiology workflows, patient-specialty tracking, multi-modality routing, and integrations across cloud services, mobile clients, desktop software, and connected clinical equipment.",
-    image: "/images/Diagnostic.png",
+    image: "/images/project-healthcare.svg",
     tags: ["Healthcare", "PACS / DICOM", "API testing", "Automation"],
     sections: [
       {
@@ -100,7 +98,7 @@ export const clientProjects: ClientProject[] = [
       "Customized notification processing, opcode functionality, and REST API integrations built around specific business requirements.",
     overview:
       "Delivered a tailored platform implementation spanning PODL and Classes development, policy customization, Opcode NAP configuration, notification processing, and REST API integration. Customization and integration testing ensured each part worked together for the required business workflows.",
-    image: "/images/Notification.png",
+    image: "/images/project-notification.svg",
     tags: ["PODL & Classes", "REST APIs", "Policy customization", "Opcode NAP"],
     sections: [
       {
