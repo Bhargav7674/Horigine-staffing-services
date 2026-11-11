@@ -1,0 +1,263 @@
+
+/* =========================================
+   HORIGINE - ENTERPRISE BACKGROUND EFFECTS
+========================================= */
+
+.home-page {
+  position: relative;
+  isolation: isolate;
+  background: #080f16;
+}
+
+/* Keep actual content above background */
+.home-page main,
+.home-page footer,
+.home-page > nav {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fixed background layer */
+.fx-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(5, 24, 31, 0.96),
+      rgba(8, 15, 22, 0.98) 55%,
+      rgba(10, 17, 23, 0.96)
+    );
+}
+
+/* Subtle technical grid */
+.fx-grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(0, 206, 209, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 206, 209, 0.035) 1px, transparent 1px);
+
+  background-size: 65px 65px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 95%
+  );
+
+  opacity: 0.5;
+}
+
+/* Ambient light orbs */
+.fx-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  will-change: transform;
+  animation: fx-ambient 30s ease-in-out infinite alternate;
+}
+
+.fx-orb-1 {
+  width: 520px;
+  height: 520px;
+  top: -220px;
+  left: -180px;
+  background: rgba(0, 206, 209, 0.15);
+}
+
+.fx-orb-2 {
+  width: 460px;
+  height: 460px;
+  right: -180px;
+  top: 25%;
+  background: rgba(0, 145, 160, 0.12);
+  animation-duration: 36s;
+}
+
+.fx-orb-3 {
+  width: 380px;
+  height: 380px;
+  left: 30%;
+  bottom: -200px;
+  background: rgba(245, 166, 35, 0.07);
+  animation-duration: 40s;
+}
+
+@keyframes fx-ambient {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(35px, 25px, 0) scale(1.12);
+  }
+}
+
+/* Network connections */
+.fx-network {
+  position: absolute;
+  inset: 0;
+  opacity: 0.48;
+}
+
+.fx-network svg {
+  width: 100%;
+  height: 100%;
+}
+
+.fx-network-line {
+  fill: none;
+  stroke: rgba(0, 214, 210, 0.23);
+  stroke-width: 0.12;
+  stroke-dasharray: 1.2 1.2;
+  animation: network-flow 18s linear infinite;
+}
+
+.fx-network-node {
+  fill: #27dcd5;
+  filter: drop-shadow(0 0 2px rgba(0, 220, 215, 0.8));
+  animation: node-pulse 4s ease-in-out infinite alternate;
+}
+
+.fx-network-node.gold-node {
+  fill: #e9b34c;
+  filter: drop-shadow(0 0 2px rgba(245, 166, 35, 0.7));
+}
+
+@keyframes network-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes node-pulse {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
+/* Soft moving light streaks */
+.fx-light-streak {
+  position: absolute;
+  width: 600px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 218, 210, 0.35),
+    transparent
+  );
+  transform: rotate(-25deg);
+  filter: blur(1px);
+  opacity: 0.35;
+  animation: streak-move 16s ease-in-out infinite alternate;
+}
+
+.fx-streak-1 {
+  top: 30%;
+  left: -15%;
+}
+
+.fx-streak-2 {
+  right: -20%;
+  bottom: 25%;
+  animation-delay: -8s;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 166, 35, 0.3),
+    transparent
+  );
+}
+
+@keyframes streak-move {
+  from {
+    transform: translateX(-30px) rotate(-25deg);
+    opacity: 0.15;
+  }
+  to {
+    transform: translateX(90px) rotate(-25deg);
+    opacity: 0.5;
+  }
+}
+
+/* Cursor-following ambient light */
+.fx-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+
+  pointer-events: none;
+  opacity: 0;
+
+  background: radial-gradient(
+    circle,
+    rgba(0, 206, 209, 0.09),
+    transparent 68%
+  );
+
+  transition: opacity 0.4s ease;
+  will-change: transform;
+}
+
+/* Tablet and mobile */
+@media (max-width: 700px) {
+  .fx-orb {
+    filter: blur(75px);
+  }
+
+  .fx-orb-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .fx-orb-2 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .fx-orb-3 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .fx-network {
+    opacity: 0.2;
+  }
+
+  .fx-grid {
+    background-size: 45px 45px;
+    opacity: 0.5;
+  }
+
+  .fx-cursor {
+    display: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fx-orb,
+  .fx-network-line,
+  .fx-network-node,
+  .fx-light-streak {
+    animation: none;
+  }
+
+  .fx-cursor {
+    display: none;
+  }
+}

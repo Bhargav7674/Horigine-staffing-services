@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchJobs, normalizeJobForCareerCard } from "../../../services/jobService";
 
 type HomeJobCard = ReturnType<typeof normalizeJobForCareerCard>;
@@ -8,6 +8,7 @@ export default function CareersSection() {
   const [jobs, setJobs] = useState<HomeJobCard[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     let isMounted = true;
@@ -70,7 +71,19 @@ export default function CareersSection() {
       ) : jobs.length ? (
         <div className="job-grid">
           {jobs.map((job) => (
-            <article className="glass-card job-card" key={job.id}>
+            <article
+              className="glass-card job-card"
+              key={job.id}
+              tabIndex={0}
+              role="button"
+              onClick={() => navigate(`/careers/${job.id}`)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  navigate(`/careers/${job.id}`);
+                }
+              }}
+            >
               <div className="role-card-topline">
                 <span className="role-department">{job.department}</span>
                 {job.badge && (
@@ -83,7 +96,11 @@ export default function CareersSection() {
               <p>
                 {job.location} / {job.type}
               </p>
-              <Link className="text-link" to={`/careers/${job.id}`}>
+              <Link
+                className="text-link"
+                to={`/careers/${job.id}`}
+                onClick={(event) => event.stopPropagation()}
+              >
                 View Details →
               </Link>
             </article>

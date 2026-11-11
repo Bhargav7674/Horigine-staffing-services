@@ -13,10 +13,12 @@ import CallToActionSection from "./components/CallToActionSection";
 import ScrollReveal from "../../shared/ScrollReveal";
 import "../../shared/shared.css";
 import "./home.css";
+// import BackgroundEffects from "./components/BackgroundEffects";
 
 export default function Home() {
   return (
     <div className="app-shell home-page">
+       {/* <BackgroundEffects /> */}
       <Navbar />
       <main>
         <ScrollReveal>

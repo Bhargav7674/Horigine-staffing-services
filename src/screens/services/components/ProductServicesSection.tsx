@@ -7,6 +7,7 @@ import {
   MonitorSmartphone,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useInView } from "../../home/components/Reveal";
 
 const services = [
   {
@@ -37,10 +38,11 @@ const services = [
 ];
 
 export default function ProductServicesSection() {
+  const { ref, inView } = useInView<HTMLDivElement>(0.15);
   return (
     <section className="container services-section divided" id="product-services">
       <div className="product-services-layout">
-        <div className="product-service-cards">
+        <div ref={ref} className={`product-service-cards slide-cols ${inView ? "is-in" : ""}`}>
           {services.map(({ title, description, detail, icon: Icon }) => (
             <article className="product-card" key={title}>
               <div className="product-card-visual">

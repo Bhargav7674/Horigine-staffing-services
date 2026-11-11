@@ -5,6 +5,7 @@ import {
   UserSearch,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useInView } from "../../home/components/Reveal";
 
 const items = [
   {
@@ -34,8 +35,9 @@ const items = [
 ];
 
 export default function StaffingSection() {
+  const { ref, inView } = useInView<HTMLDivElement>(0.15);
   return (
-    <section className="services-section divided">
+    <section className="services-section divided" id="staffing-services">
       <div className="container">
         <div className="staffing-layout">
           <aside className="staffing-content">
@@ -68,7 +70,7 @@ export default function StaffingSection() {
             </Link>
           </aside>
 
-          <div className="staffing-grid">
+          <div ref={ref} className={`staffing-grid slide-cols ${inView ? "is-in" : ""}`}>
             {items.map(({ title, description, icon: Icon }) => (
               <article key={title} className="staffing-card">
                 <div className="staffing-card-visual">

@@ -4476,3 +4476,60 @@
   .testi-dot,
   .testi-arrow { transition: none; }
 }
+
+/* ===== WHY CHOOSE US: cards slide in from the sides ===== */
+@keyframes wc-from-left {
+  from { opacity: 0; transform: translateX(-110px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes wc-from-right {
+  from { opacity: 0; transform: translateX(110px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* hidden until the section scrolls into view */
+.wc-slide:not(.is-in) .why-choose-card {
+  opacity: 0;
+}
+
+/* left column: slides in from the left */
+.wc-slide.is-in .why-choose-card:nth-child(odd) {
+  animation: wc-from-left 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+/* right column: slides in from the right */
+.wc-slide.is-in .why-choose-card:nth-child(even) {
+  animation: wc-from-right 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+/* small delays so the cards land one after another */
+.wc-slide.is-in .why-choose-card:nth-child(1) { animation-delay: 0s; }
+.wc-slide.is-in .why-choose-card:nth-child(2) { animation-delay: 0.12s; }
+.wc-slide.is-in .why-choose-card:nth-child(3) { animation-delay: 0.28s; }
+.wc-slide.is-in .why-choose-card:nth-child(4) { animation-delay: 0.4s; }
+
+@media (max-width: 640px) {
+  @keyframes wc-from-left  { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+  @keyframes wc-from-right { from { opacity: 0; transform: translateX(40px); }  to { opacity: 1; transform: none; } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wc-slide:not(.is-in) .why-choose-card { opacity: 1; }
+  .wc-slide.is-in .why-choose-card { animation: none; }
+}
+
+/* ===== WHY CHOOSE US: move left text up ===== */
+.home-page .why-choose-copy {
+  transform: translateY(-80px);   /* move the whole left block up */
+}
+.home-page .why-choose-copy h2 {
+  margin-top: 20px;               /* was 48px: label sits closer to the heading */
+}
+
+@media (max-width: 1100px) {
+  .home-page .why-choose-copy {
+    transform: none;              /* no shift when the layout stacks */
+  }
+  .home-page .why-choose-copy h2 {
+    margin-top: 28px;
+  }
+}

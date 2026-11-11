@@ -1143,3 +1143,187 @@
 @media (prefers-reduced-motion: reduce) {
   .cp-card, .cp-thumb img, .cp-link svg { transition: none; }
 }
+
+
+/* ===== IT SOLUTIONS + IT STAFFING: match website design ===== */
+
+/* soft teal glow behind the sections, like the How We Work background */
+.services-section.divided {
+  position: relative;
+  isolation: isolate;
+  border-top: 0;
+}
+.services-section.divided::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -120px;
+  left: -220px;
+  width: 760px;
+  height: 760px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 206, 209, 0.12),
+    rgba(0, 206, 209, 0.04) 40%,
+    rgba(0, 206, 209, 0) 70%
+  );
+}
+
+/* ---------- cards (teal / gold glass) ---------- */
+.product-card,
+.staffing-card {
+  justify-content: flex-start;   /* icons and titles line up in every card */
+  padding: 24px 24px 22px;
+  border-radius: 22px;
+  color: #f4f8fc;
+  border: 1.5px solid rgba(0, 206, 209, 0.6);
+  background:
+    radial-gradient(ellipse at 100% 100%, rgba(0, 206, 209, 0.1), transparent 60%),
+    linear-gradient(145deg, rgba(9, 36, 46, 0.8), rgba(6, 18, 26, 0.92));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 16px 40px rgba(0, 0, 0, 0.22);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover,
+.staffing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px rgba(0, 206, 209, 0.2), 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* gold cards: 2nd and 3rd, same pattern as Why Choose Us */
+.product-card:nth-child(2),
+.product-card:nth-child(3),
+.staffing-card:nth-child(2),
+.staffing-card:nth-child(3) {
+  border-color: rgba(245, 166, 35, 0.75);
+  background:
+    radial-gradient(ellipse at 100% 100%, rgba(245, 166, 35, 0.14), transparent 60%),
+    linear-gradient(145deg, rgba(16, 30, 34, 0.82), rgba(8, 18, 24, 0.92));
+}
+.product-card:nth-child(2):hover,
+.product-card:nth-child(3):hover,
+.staffing-card:nth-child(2):hover,
+.staffing-card:nth-child(3):hover {
+  box-shadow: 0 0 30px rgba(245, 166, 35, 0.22), 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* icon box */
+.product-card-visual,
+.staffing-card-visual {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  color: #2de3e0;
+  background: rgba(0, 206, 209, 0.1);
+  border: 1.5px solid rgba(0, 206, 209, 0.5);
+}
+.product-card:nth-child(2) .product-card-visual,
+.product-card:nth-child(3) .product-card-visual,
+.staffing-card:nth-child(2) .staffing-card-visual,
+.staffing-card:nth-child(3) .staffing-card-visual {
+  color: #ffb81f;
+  background: rgba(245, 166, 35, 0.1);
+  border-color: rgba(245, 166, 35, 0.5);
+}
+
+/* text */
+.product-card h3,
+.staffing-card h3 {
+  margin: 0 0 10px;
+  font-size: clamp(1.25rem, 1.5vw, 1.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #f4f8fc;
+}
+.product-card p,
+.staffing-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(225, 235, 242, 0.82);
+}
+
+/* CRM tags */
+.product-card-tags span {
+  color: #6ce0e5;
+  background: rgba(0, 206, 209, 0.08);
+  border: 1px solid rgba(0, 206, 209, 0.25);
+}
+.product-card:nth-child(2) .product-card-tags span,
+.product-card:nth-child(3) .product-card-tags span {
+  color: #ffb81f;
+  background: rgba(245, 166, 35, 0.08);
+  border-color: rgba(245, 166, 35, 0.3);
+}
+
+/* ---------- left / right text blocks ---------- */
+.product-section-line {
+  width: 80px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #00e0d0, #9be37a 60%, #ffb81f);
+}
+.check {
+  width: 24px;
+  height: 24px;
+  color: #2de3e0;
+  background: rgba(0, 206, 209, 0.14);
+  border: 1px solid rgba(0, 206, 209, 0.4);
+}
+.product-discover-btn {
+  border: 1.5px solid rgba(0, 206, 209, 0.7);
+}
+.product-discover-btn:hover {
+  background: rgba(0, 206, 209, 0.14);
+  border-color: #2de3e0;
+}
+
+@media (max-width: 720px) {
+  .product-card,
+  .staffing-card { padding: 20px 18px; }
+  .product-card-visual,
+  .staffing-card-visual { width: 60px; height: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .staffing-card { transition: none; }
+}
+/* ===== SERVICES: cards slide in from the sides ===== */
+@keyframes sc-from-left {
+  from { opacity: 0; transform: translateX(-110px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes sc-from-right {
+  from { opacity: 0; transform: translateX(110px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* hidden while the section is off screen */
+.slide-cols:not(.is-in) > * {
+  opacity: 0;
+}
+
+/* column 1: left to right */
+.slide-cols.is-in > *:nth-child(odd) {
+  animation: sc-from-left 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+/* column 2: right to left */
+.slide-cols.is-in > *:nth-child(even) {
+  animation: sc-from-right 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+/* second row lands a little after the first */
+.slide-cols.is-in > *:nth-child(1) { animation-delay: 0s; }
+.slide-cols.is-in > *:nth-child(2) { animation-delay: 0.1s; }
+.slide-cols.is-in > *:nth-child(3) { animation-delay: 0.25s; }
+.slide-cols.is-in > *:nth-child(4) { animation-delay: 0.35s; }
+
+@media (max-width: 720px) {
+  @keyframes sc-from-left  { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+  @keyframes sc-from-right { from { opacity: 0; transform: translateX(40px); }  to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide-cols:not(.is-in) > * { opacity: 1; }
+  .slide-cols.is-in > * { animation: none; }
+}

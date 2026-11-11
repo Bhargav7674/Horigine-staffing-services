@@ -1,4 +1,5 @@
-import { BriefcaseBusiness, Layers3, UsersRound, type LucideIcon } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, Layers3, UsersRound, type LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 type Card = { title: string; description: string; image: string; icon: LucideIcon };
 
@@ -48,6 +49,9 @@ export default function ITStaffingSection() {
               <span className="offer-icon"><Icon size={30} strokeWidth={1.8} /></span>
               <h3>{title}</h3>
               <p>{description}</p>
+              <Link to="/services#staffing-services" className="offer-link">
+                Explore Service <ArrowRight size={14} />
+              </Link>
             </div>
           </article>
         ))}

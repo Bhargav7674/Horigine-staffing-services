@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./stats-section.css";
 
 const stats = [
-  { value: 1, suffix: "+", label: "Years Experience", icon: "calendar" },
+  { value: 2, suffix: "+", label: "Years Experience", icon: "calendar" },
   { value: 100, suffix: "+", label: "Placements", icon: "users" },
   { value: 20, suffix: "+", label: "Core Technologies", icon: "layers" },
   { value: 15, suffix: "+", label: "Clients", icon: "handshake" },

@@ -1,4 +1,5 @@
 import { ArrowRight, Cloud, Code2, Layers3, MonitorSmartphone, type LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const crmSolutions = [
@@ -87,9 +88,13 @@ export default function ITServicesSection() {
                 <span className="offer-icon"><Icon size={30} strokeWidth={1.8} /></span>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <span className="offer-link">
+                <Link
+                  className="offer-link"
+                  to="/services#product-services"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   Explore Service <ArrowRight size={14} />
-                </span>
+                </Link>
               </div>
             </article>
           );
@@ -124,13 +129,18 @@ export default function ITServicesSection() {
                   </div>
                   <div className="crm-modal-grid">
                     {miniCards.map(({ title: t, description: d, image: img }) => (
-                      <div className="crm-subcard" key={t}>
+                      <Link
+                        to="/services#product-services"
+                        className="crm-subcard"
+                        key={t}
+                        onClick={() => setExpandedCard(null)}
+                      >
                         <img src={img} alt={t} />
                         <div>
                           <strong>{t}</strong>
                           <span>{d}</span>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </div>

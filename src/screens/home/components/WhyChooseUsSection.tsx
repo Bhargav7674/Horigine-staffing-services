@@ -5,6 +5,7 @@ import {
   ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
+import { useInView } from "./Reveal";
 
 type FeatureItem = {
   title: string;
@@ -32,7 +33,7 @@ const items: FeatureItem[] = [
     title: "Quality-Driven Vetting",
     description:
       "Through rigorous screening and technical assessments, we present only highly qualified professionals who can contribute from day one.",
-     accent: "gold",
+    accent: "gold",
     icon: ShieldCheck,
   },
   {
@@ -45,23 +46,25 @@ const items: FeatureItem[] = [
 ];
 
 export default function WhyChooseUsSection() {
+  const { ref, inView } = useInView<HTMLDivElement>(0.15);
+
   return (
     <section className="why-choose-section">
       <div className="why-choose-copy">
         <span className="why-eyebrow">
-  <i aria-hidden="true" />
-  Why Choose Us
-</span>
+          <i aria-hidden="true" />
+          Why Choose Us
+        </span>
         <h2>
-  Your Trusted Partner in
-  <br />
-  Managed IT <span className="gradient-text">Solutions</span>
-  <br />
-  and <span className="gradient-text">Precision Hiring.</span>
-</h2>
+          Your Trusted Partner in
+          <br />
+          Managed <span className="gradient-text">IT Solutions</span>
+          <br />
+          and <span className="gradient-text">Precision Hiring.</span>
+        </h2>
       </div>
 
-      <div className="why-choose-grid">
+      <div ref={ref} className={`why-choose-grid wc-slide ${inView ? "is-in" : ""}`}>
         {items.map(({ title, description, accent, icon: Icon }) => (
           <article className={`why-choose-card accent-${accent}`} key={title}>
             <div className="why-choose-icon">

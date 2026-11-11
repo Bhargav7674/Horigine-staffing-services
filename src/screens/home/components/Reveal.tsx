@@ -119,7 +119,7 @@ export function RevealWords({
           key={i}
           style={{ "--i": Math.min(i, 40) } as CSSProperties}
         >
-          {word}&nbsp;
+          {word}{" "}
         </span>
       ))}
     </Tag>

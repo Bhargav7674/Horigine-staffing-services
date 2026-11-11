@@ -249,3 +249,193 @@
     width: calc(100% - 32px);
   }
 }
+/* ===== COMPANY STATS ===== */
+.about-content .cs-section {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding: clamp(36px, 5vw, 60px) clamp(18px, 3vw, 40px);
+  border-radius: 28px;
+  border: 1px solid rgba(0, 206, 209, 0.22);
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(0, 206, 209, 0.12), transparent 50%),
+    radial-gradient(ellipse at 95% 100%, rgba(245, 166, 35, 0.1), transparent 50%),
+    linear-gradient(145deg, rgba(8, 28, 36, 0.7), rgba(6, 18, 26, 0.85));
+}
+
+.cs-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.cs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 206, 209, 0.45);
+  background: rgba(0, 206, 209, 0.06);
+  color: #2de3e0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cs-eyebrow i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f5a623;
+}
+.about-content .cs-heading h2 {
+  margin: 18px 0 10px;
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  color: #f4f8fc;
+}
+.cs-gradient {
+  background: linear-gradient(100deg, #00e0d0, #9be37a 55%, #ffb81f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.cs-heading p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: rgba(225, 235, 242, 0.85);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* ---------- cards ---------- */
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.cs-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: 28px 14px 24px;
+  text-align: center;
+  border-radius: 24px;
+  border: 1.5px solid rgba(0, 206, 209, 0.65);
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(0, 206, 209, 0.12), transparent 65%),
+    linear-gradient(160deg, rgba(9, 36, 46, 0.8), rgba(6, 18, 26, 0.92));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 14px 34px rgba(0, 0, 0, 0.22);
+  opacity: 0.25;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+.cs-card.is-active {
+  opacity: 1;
+  transform: none;
+}
+.cs-card.is-active:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px rgba(0, 206, 209, 0.22), 0 14px 34px rgba(0, 0, 0, 0.26);
+}
+.cs-card.cs-gold {
+  border-color: rgba(245, 166, 35, 0.8);
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(245, 166, 35, 0.15), transparent 65%),
+    linear-gradient(160deg, rgba(18, 30, 34, 0.82), rgba(8, 18, 24, 0.92));
+}
+.cs-card.cs-gold.is-active:hover {
+  box-shadow: 0 0 30px rgba(245, 166, 35, 0.24), 0 14px 34px rgba(0, 0, 0, 0.26);
+}
+
+.cs-icon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  color: #2de3e0;
+  background: rgba(0, 206, 209, 0.1);
+  border: 1.5px solid rgba(0, 206, 209, 0.5);
+}
+.cs-gold .cs-icon {
+  color: #ffb81f;
+  background: rgba(245, 166, 35, 0.1);
+  border-color: rgba(245, 166, 35, 0.5);
+}
+
+.cs-number {
+  display: block;
+  font-size: clamp(2.1rem, 3.2vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(100deg, #2de3e0, #9be37a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.cs-gold .cs-number {
+  background: linear-gradient(100deg, #ffb81f, #ffd77a);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.cs-label {
+  display: block;
+  margin-top: 12px;
+  color: rgba(234, 239, 245, 0.92);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* progress bar that fills while the number counts */
+.cs-bar {
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 18px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.cs-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  transform-origin: left;
+  background: #2de3e0;
+}
+.cs-gold .cs-bar span {
+  background: #ffb81f;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px) {
+  .cs-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .cs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .cs-card:last-child { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-card { transition: none; opacity: 1; transform: none; }
+}
+/* ===== COMPANY STATS: match page background ===== */
+.about-content .cs-section {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  padding: clamp(20px, 3vw, 40px) 0;
+}
