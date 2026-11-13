@@ -1,5 +1,14 @@
+
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/case-studies/:path*",
+      "destination": "/case-studies/:path*"
+    },
+    {
+      "source": "/((?!case-studies/).*)",
+      "destination": "/index.html"
+    }
   ]
 }
