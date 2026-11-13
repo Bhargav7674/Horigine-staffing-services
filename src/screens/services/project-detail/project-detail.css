@@ -295,3 +295,263 @@
     grid-template-columns: 1fr;
   }
 }
+/* ===== CASE STUDY PANEL ===== */
+.project-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+.project-detail-actions .project-detail-cta {
+  margin-top: 0;
+}
+.project-detail-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 19px;
+  border-radius: 7px;
+  border: 1.5px solid rgba(0, 206, 209, 0.6);
+  background: rgba(0, 206, 209, 0.06);
+  color: #2de3e0;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.project-detail-ghost:hover {
+  background: rgba(0, 206, 209, 0.16);
+  transform: translateY(-2px);
+}
+
+.cs-doc {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 26px;
+  border: 1.5px solid rgba(0, 206, 209, 0.55);
+  background:
+    radial-gradient(ellipse at 100% 100%, rgba(245, 166, 35, 0.12), transparent 60%),
+    linear-gradient(145deg, rgba(9, 36, 46, 0.8), rgba(6, 18, 26, 0.92));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+.cs-doc-icon {
+  display: grid;
+  place-items: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 20px;
+  color: #ffb81f;
+  background: rgba(245, 166, 35, 0.1);
+  border: 1.5px solid rgba(245, 166, 35, 0.55);
+}
+.cs-doc-text .project-eyebrow {
+  margin-bottom: 8px;
+}
+.cs-doc-text h2 {
+  margin: 0 0 8px;
+}
+.cs-doc-text p:not(.project-eyebrow) {
+  margin: 0;
+  max-width: 560px;
+  color: rgba(225, 235, 242, 0.82);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.cs-doc-meta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  color: #ffb81f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(245, 166, 35, 0.1);
+  border: 1px solid rgba(245, 166, 35, 0.35);
+}
+.cs-doc-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* buttons */
+.cs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.cs-btn:hover {
+  transform: translateY(-2px);
+}
+.cs-btn-primary {
+  color: #06171d;
+  background: linear-gradient(100deg, #00e0d0, #9be37a);
+  box-shadow: 0 10px 26px rgba(0, 206, 209, 0.22);
+}
+.cs-btn-ghost {
+  color: #2de3e0;
+  background: rgba(0, 206, 209, 0.06);
+  border-color: rgba(0, 206, 209, 0.6);
+}
+.cs-btn-ghost:hover {
+  background: rgba(0, 206, 209, 0.16);
+}
+.cs-btn-sm {
+  padding: 9px 16px;
+  font-size: 12px;
+}
+
+/* ===== PDF VIEWER POPUP ===== */
+.pdf-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 8, 12, 0.72);
+  backdrop-filter: blur(6px);
+  animation: pdf-fade 0.25s ease both;
+}
+.pdf-modal {
+  display: flex;
+  flex-direction: column;
+  width: min(1100px, 100%);
+  height: min(92vh, 900px);
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1.5px solid rgba(0, 206, 209, 0.5);
+  background: #0a1c24;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  animation: pdf-pop 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.pdf-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(90deg, rgba(0, 206, 209, 0.1), rgba(245, 166, 35, 0.06));
+}
+.pdf-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  color: #f4f8fc;
+  font-size: 14px;
+  font-weight: 700;
+}
+.pdf-modal-title svg {
+  flex: none;
+  color: #2de3e0;
+}
+.pdf-modal-title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pdf-modal-tools {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+}
+.pdf-close {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #eaf7ff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.pdf-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+.pdf-modal-body {
+  position: relative;
+  flex: 1;
+  background: #e8edf1;
+}
+.pdf-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* fallback for devices that cannot show PDFs inside a page */
+.pdf-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  color: #e8f0f6;
+  background: #0a1c24;
+}
+.pdf-fallback svg {
+  color: #2de3e0;
+}
+.pdf-fallback p {
+  margin: 0 0 6px;
+  max-width: 280px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@keyframes pdf-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pdf-pop {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (max-width: 860px) {
+  .cs-doc {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .cs-doc-actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 700px) {
+  .pdf-overlay { padding: 0; }
+  .pdf-modal { width: 100%; height: 100%; border-radius: 0; border: 0; }
+  .pdf-frame { display: none; }
+  .pdf-fallback { display: flex; }
+  .cs-hide-sm { display: none; }
+}
+@media (max-width: 520px) {
+  .cs-doc { grid-template-columns: 1fr; gap: 18px; }
+  .cs-doc-actions .cs-btn { flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pdf-overlay, .pdf-modal { animation: none; }
+}

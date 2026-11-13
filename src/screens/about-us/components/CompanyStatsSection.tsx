@@ -19,7 +19,6 @@ const stats: Stat[] = [
   { value: 2, suffix: "+", label: "Years in Operation", icon: CalendarDays },
   { value: 100, suffix: "+", label: "Placements Made", icon: UserCheck },
   { value: 10, suffix: "+", label: "Projects Delivered", icon: Rocket },
-  { value: 25, suffix: "%", label: "Client Retention", icon: HeartHandshake },
   { value: 20, suffix: "+", label: "Technologies Covered", icon: Layers3 },
 ];
 

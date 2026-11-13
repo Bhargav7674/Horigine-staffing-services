@@ -3,6 +3,11 @@ type ProjectSection = {
   points: string[];
 };
 
+type CaseStudy = {
+  file: string;
+  fileName: string;
+};
+
 type ClientProject = {
   id: string;
   number: string;
@@ -11,6 +16,7 @@ type ClientProject = {
   summary: string;
   overview: string;
   image: string;
+  caseStudy: CaseStudy;
   tags: string[];
   sections: ProjectSection[];
   outcomes: string[];
@@ -19,7 +25,7 @@ type ClientProject = {
 export const clientProjects: ClientProject[] = [
   {
     id: "salesforce-commerce-cloud",
-    number: "03",
+    number: "01",
     category: "Salesforce Commerce Cloud",
     title: "Global Commerce & Omnichannel Service",
     summary:
@@ -27,6 +33,10 @@ export const clientProjects: ClientProject[] = [
     overview:
       "A Salesforce Commerce Cloud implementation built around a reusable global storefront architecture and market-specific experiences. The solution connected commerce with lead sources, ERPs, marketing platforms, and Service Cloud while strengthening security monitoring and service-agent context.",
     image: "/images/project-commerce.svg",
+    caseStudy: {
+      file: "/case-studies/salesforce-commerce-cloud-case-study.pdf",
+      fileName: "Horigine-Salesforce-Commerce-Cloud-Case-Study.pdf",
+    },
     tags: ["Commerce Cloud", "Service Cloud", "REST / GraphQL", "Shield"],
     sections: [
       {
@@ -63,6 +73,10 @@ export const clientProjects: ClientProject[] = [
     overview:
       "An engineering and quality assurance program for an enterprise imaging and diagnostic management platform. Validation covered high-volume radiology workflows, patient-specialty tracking, multi-modality routing, and integrations across cloud services, mobile clients, desktop software, and connected clinical equipment.",
     image: "/images/project-healthcare.svg",
+    caseStudy: {
+      file: "/case-studies/healthcare-imaging-validation-case-study.pdf",
+      fileName: "Horigine-Healthcare-Medical-Imaging-Case-Study.pdf",
+    },
     tags: ["Healthcare", "PACS / DICOM", "API testing", "Automation"],
     sections: [
       {
@@ -91,7 +105,7 @@ export const clientProjects: ClientProject[] = [
   },
   {
     id: "notification-opcode-development",
-    number: "01",
+    number: "03",
     category: "Enterprise platform integration",
     title: "Notification & Opcode Development",
     summary:
@@ -99,6 +113,10 @@ export const clientProjects: ClientProject[] = [
     overview:
       "Delivered a tailored platform implementation spanning PODL and Classes development, policy customization, Opcode NAP configuration, notification processing, and REST API integration. Customization and integration testing ensured each part worked together for the required business workflows.",
     image: "/images/project-notification.svg",
+    caseStudy: {
+      file: "/case-studies/notification-opcode-development-case-study.pdf",
+      fileName: "Horigine-Opcode-Development-Case-Study.pdf",
+    },
     tags: ["PODL & Classes", "REST APIs", "Policy customization", "Opcode NAP"],
     sections: [
       {
