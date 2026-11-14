@@ -27,14 +27,14 @@ export default function Footer() {
             <Link to="/contact-us">Contact Us</Link>
           </div>
           <div>
-            <h3>Services</h3>
-            <Link to="/services">Managed IT Solutions</Link>
-            <Link to="/services">Staffing Services</Link>
-          </div>
+  <h3>Services</h3>
+  <Link to="/services#product-services">Managed IT Solutions</Link>
+  <Link to="/services#staffing-services">Staffing Services</Link>
+</div>
           <div>
             <h3>Contact Us</h3>
             <a href="tel:+919059988259">+91 90599 88259</a>
-              <a href="mailto:contact@horigineitsolutions.com ">contact@horigineitsolutions.com </a>
+              <a href="mailto:contact@horigineitsolutions.com">contact@horigineitsolutions.com</a>
               <address>
               Tech Park Phase II, Autonagar, Vijayawada, Andhra Pradesh 520007,
               India
