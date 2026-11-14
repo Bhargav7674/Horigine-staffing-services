@@ -4533,3 +4533,42 @@
     margin-top: 28px;
   }
 }
+
+/* ===== CTA BUTTON: website colours ===== */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 32px;
+  border-radius: 999px;
+  border: 0;
+  color: #06171d;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  background: linear-gradient(100deg, #00e0d0 0%, #9be37a 55%, #ffb81f 100%);
+  box-shadow: 0 12px 30px rgba(0, 206, 209, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.cta-btn svg {
+  transition: transform 0.25s ease;
+}
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 38px rgba(0, 206, 209, 0.38);
+}
+.cta-btn:hover svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 480px) {
+  .cta-btn {
+    width: 100%;
+    padding: 14px 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-btn,
+  .cta-btn svg { transition: none; }
+}

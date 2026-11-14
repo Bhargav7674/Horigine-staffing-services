@@ -28,7 +28,7 @@ The Home, About Us, Services, and Careers pages have responsive styling and CSS 
 This is a responsive, organized starter implementation based on the supplied screenshots and code excerpts. Exact pixel matching depends on using the original exported Figma assets, fonts, and final copy. Verify all routes, links, image assets, and PWA icons before production.
 
 ## Careers page
-The Careers page is available at `/careers`. It reuses the shared navigation and footer, has responsive benefit and role cards, and includes working client-side search, department, and location filters. The sample role cards are illustrative; replace them with approved live vacancies before publishing. Apply links currently open an email draft addressed to `careers@horiginestaffing.com`.
+The Careers page is available at `/careers`. It reuses the shared navigation and footer, has responsive benefit and role cards, and includes working client-side search, department, and location filters. The sample role cards are illustrative; replace them with approved live vacancies before publishing. Apply links currently open an email draft addressed to `Contact@horigineitsolutions.com`.
 
 ## Contact Us page
 The Contact Us page is available at `/contact-us`. It reuses the shared navigation and footer and includes responsive contact details, an inquiry form, and an embedded map. The form opens a pre-filled email draft to `hello@horigine.com`; connect a backend or form service if you want submissions delivered without the visitor opening an email app. Confirm phone number, email address, and office address before production use.

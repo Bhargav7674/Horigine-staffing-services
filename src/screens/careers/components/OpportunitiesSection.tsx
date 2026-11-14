@@ -44,7 +44,7 @@ export default function OpportunitiesSection({
           <p>Discover roles where your expertise can shine.</p>
         </div>
         <a
-          href="mailto:careers@horiginestaffing.com?subject=Career%20opportunities"
+          href="mailto:Contact@horigineitsolutions.com?subject=Career%20opportunities"
           className="view-all-link"
         >
           View All <span aria-hidden="true">→</span>
@@ -182,7 +182,7 @@ export default function OpportunitiesSection({
       )}
       <p className="careers-note">
         Don&apos;t see the right fit?{" "}
-        <a href="mailto:careers@horiginestaffing.com">Send us your resume</a>{" "}
+        <a href="mailto:Contact@horigineitsolutions.com">Send us your resume</a>{" "}
         and we&apos;ll keep you in mind for future opportunities.
       </p>
     </section>

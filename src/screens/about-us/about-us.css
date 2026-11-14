@@ -439,3 +439,69 @@
   overflow: visible;
   padding: clamp(20px, 3vw, 40px) 0;
 }
+
+/* ===== COMPANY STATS: center the cards ===== */
+.cs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.cs-card {
+  flex: 0 1 230px;
+  min-width: 190px;
+}
+
+@media (max-width: 1100px) {
+  .cs-card { flex: 0 1 calc(33.333% - 18px); }
+}
+@media (max-width: 700px) {
+  .cs-grid { gap: 14px; }
+  .cs-card {
+    flex: 0 1 calc(50% - 14px);
+    min-width: 0;
+  }
+}
+
+/* ===== COMPANY STATS: bigger cards, smaller gap ===== */
+.cs-grid {
+  gap: 12px;                       /* was 18px: cards sit closer together */
+}
+
+.cs-card {
+  flex: 0 1 280px;                 /* was 230px: wider cards */
+  min-width: 220px;
+  padding: 40px 18px 34px;         /* taller cards */
+}
+
+.cs-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 22px;
+}
+
+.cs-number {
+  font-size: clamp(2.4rem, 3.6vw, 3.6rem);
+}
+
+.cs-label {
+  font-size: 0.78rem;
+  margin-top: 14px;
+}
+
+.cs-bar {
+  width: 76px;
+  margin-top: 22px;
+}
+
+@media (max-width: 1100px) {
+  .cs-card { flex: 0 1 calc(33.333% - 12px); min-width: 0; }
+}
+@media (max-width: 700px) {
+  .cs-grid { gap: 10px; }
+  .cs-card {
+    flex: 0 1 calc(50% - 10px);
+    padding: 28px 12px 26px;
+  }
+}
