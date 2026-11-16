@@ -1,7 +1,225 @@
+import { useEffect, useState } from "react";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, Youtube } from "lucide-react";
+import { buildApiUrl } from "../services/api";
+
+type SocialLinkRecord = {
+  id?: string | number;
+  platform?: string;
+  name?: string;
+  label?: string;
+  url?: string;
+  link?: string;
+  href?: string;
+  link_url?: string;
+  slug?: string;
+  type?: string;
+  is_active?: boolean;
+};
+
+type FooterSocialLink = {
+  key: string;
+  label: string;
+  href: string;
+  icon: typeof Instagram;
+};
+
+const baseSocialLinks: FooterSocialLink[] = [
+  {
+    key: "instagram",
+    label: "Instagram",
+    href: "https://www.instagram.com/horigineitsolutions?xtok=NnF4eHp5djh1eHBv",
+    icon: Instagram,
+  },
+  {
+    key: "linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/horiginestaffing/",
+    icon: Linkedin,
+  },
+  {
+    key: "youtube",
+    label: "YouTube",
+    href: "https://youtube.com/@horiginestaffing?si=Uelf_OHMn0bsolAM",
+    icon: Youtube,
+  },
+  {
+    key: "facebook",
+    label: "Facebook",
+    href: "https://www.facebook.com/",
+    icon: Facebook,
+  },
+  {
+    key: "twitter",
+    label: "Twitter",
+    href: "https://x.com/",
+    icon: Twitter,
+  },
+];
+
+function normalizePlatformKey(value: string | undefined): string {
+  const normalized = (value ?? "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+
+  if (!normalized) return "";
+
+  if (["instagram", "insta", "ig"].includes(normalized)) return "instagram";
+  if (["facebook", "fb", "meta"].includes(normalized)) return "facebook";
+  if (["twitter", "x", "tweet", "tweets"].includes(normalized)) return "twitter";
+  if (["linkedin", "linkedincompany"].includes(normalized)) return "linkedin";
+  if (["youtube", "yt"].includes(normalized)) return "youtube";
+
+  return normalized;
+}
+
+function getSocialHref(link: SocialLinkRecord): string {
+  const href = (
+    link.url ??
+    link.link ??
+    link.href ??
+    link.link_url ??
+    ""
+  )
+    .toString()
+    .trim();
+
+  return href;
+}
+
+function extractSocialList(payload: unknown): SocialLinkRecord[] {
+  if (!payload) return [];
+
+  if (Array.isArray(payload)) return payload as SocialLinkRecord[];
+
+  if (typeof payload === "object") {
+    const record = payload as Record<string, unknown>;
+
+    const candidates = [
+      record.items,
+      record.results,
+      record.data,
+      record.social_links,
+      record.links,
+      record.socialLinks,
+    ];
+
+    for (const candidate of candidates) {
+      if (Array.isArray(candidate)) {
+        return candidate as SocialLinkRecord[];
+      }
+    }
+  }
+
+  return [];
+}
+
+function buildAdminSocialMap(payload: unknown): Map<string, string> {
+  const adminLinks = new Map<string, string>();
+
+  extractSocialList(payload).forEach((link) => {
+    const href = getSocialHref(link);
+    const isActive = link.is_active === undefined || link.is_active === true;
+
+    if (!href || !isActive) return;
+
+    const platformKey = normalizePlatformKey(
+      link.platform ?? link.name ?? link.label ?? link.slug ?? link.type,
+    );
+
+    if (!platformKey) return;
+
+    if (!adminLinks.has(platformKey)) {
+      adminLinks.set(platformKey, href);
+    }
+  });
+
+  return adminLinks;
+}
+
+function mergeSocialLinks(payload: unknown): FooterSocialLink[] {
+  const adminMap = buildAdminSocialMap(payload);
+
+  const merged = baseSocialLinks.map((item) => {
+    const nextHref = adminMap.get(item.key);
+
+    return {
+      ...item,
+      href: nextHref ?? item.href,
+    };
+  });
+
+  const extraLinks = Array.from(adminMap.entries())
+    .filter(([key]) => !baseSocialLinks.some((item) => item.key === key))
+    .map(([key, href]) => {
+      const labelMap: Record<string, string> = {
+        instagram: "Instagram",
+        facebook: "Facebook",
+        twitter: "Twitter",
+        linkedin: "LinkedIn",
+        youtube: "YouTube",
+      };
+
+      const iconMap: Record<string, typeof Instagram> = {
+        instagram: Instagram,
+        facebook: Facebook,
+        twitter: Twitter,
+        linkedin: Linkedin,
+        youtube: Youtube,
+      };
+
+      return {
+        key,
+        label: labelMap[key] ?? key,
+        href,
+        icon: iconMap[key] ?? Instagram,
+      } satisfies FooterSocialLink;
+    });
+
+  return [...merged, ...extraLinks];
+}
 
 export default function Footer() {
+  const [socialLinks, setSocialLinks] = useState<FooterSocialLink[]>(baseSocialLinks);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function fetchSocialLinks() {
+      try {
+        const response = await fetch(buildApiUrl("/social-links/"), {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          return;
+        }
+
+        const payload = await response.json();
+        const mergedLinks = mergeSocialLinks(payload);
+
+        if (isMounted && mergedLinks.length > 0) {
+          setSocialLinks(mergedLinks);
+        }
+      } catch {
+        if (isMounted) {
+          setSocialLinks(baseSocialLinks);
+        }
+      }
+    }
+
+    void fetchSocialLinks();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <>
       <footer className="site-footer" id="contact-us">
@@ -27,43 +245,30 @@ export default function Footer() {
             <Link to="/contact-us">Contact Us</Link>
           </div>
           <div>
-  <h3>Services</h3>
-  <Link to="/services#product-services">Managed IT Solutions</Link>
-  <Link to="/services#staffing-services">Staffing Services</Link>
-</div>
+            <h3>Services</h3>
+            <Link to="/services#product-services">Managed IT Solutions</Link>
+            <Link to="/services#staffing-services">Staffing Services</Link>
+          </div>
           <div>
             <h3>Contact Us</h3>
             <a href="tel:+919059988259">+91 90599 88259</a>
-              <a href="mailto:contact@horigineitsolutions.com">contact@horigineitsolutions.com</a>
-              <address>
+            <a href="mailto:contact@horigineitsolutions.com">contact@horigineitsolutions.com</a>
+            <address>
               Tech Park Phase II, Autonagar, Vijayawada, Andhra Pradesh 520007,
               India
             </address>
             <div className="footer-social-links">
-              <a
-                href="https://www.instagram.com/horiginestaffing?vrfl=NnF4eHp5djh1eHBv"
-                aria-label="Instagram"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Instagram size={14} />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/horiginestaffing/"
-                aria-label="LinkedIn"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Linkedin size={14} />
-              </a>
-              <a
-                href="https://youtube.com/@horiginestaffing?si=Uelf_OHMn0bsolAM"
-                aria-label="YouTube"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Youtube size={14} />
-              </a>
+              {socialLinks.map(({ key, label, href, icon: Icon }) => (
+                <a
+                  key={key}
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Icon size={14} />
+                </a>
+              ))}
             </div>
             <a
               className="footer-location-link"
