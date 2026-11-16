@@ -26,6 +26,12 @@ type FooterSocialLink = {
 
 const baseSocialLinks: FooterSocialLink[] = [
   {
+    key: "facebook",
+    label: "Facebook",
+    href: "https://www.facebook.com/",
+    icon: Facebook,
+  },
+  {
     key: "instagram",
     label: "Instagram",
     href: "https://www.instagram.com/horigineitsolutions?xtok=NnF4eHp5djh1eHBv",
@@ -43,12 +49,7 @@ const baseSocialLinks: FooterSocialLink[] = [
     href: "https://youtube.com/@horiginestaffing?si=Uelf_OHMn0bsolAM",
     icon: Youtube,
   },
-  {
-    key: "facebook",
-    label: "Facebook",
-    href: "https://www.facebook.com/",
-    icon: Facebook,
-  },
+  
   {
     key: "twitter",
     label: "Twitter",
