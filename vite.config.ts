@@ -40,24 +40,4 @@ export default defineConfig({
       },
     }),
   ],
-
-  server: {
-    proxy: {
-      "/api": {
-        target: "https://horizon-staffing-6m8m.onrender.com",
-        changeOrigin: true,
-        secure: true,
-      },
-    },
-  },
-
-  preview: {
-    proxy: {
-      "/api": {
-        target: "https://horizon-staffing-6m8m.onrender.com",
-        changeOrigin: true,
-        secure: true,
-      },
-    },
-  },
 });
