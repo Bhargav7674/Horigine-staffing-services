@@ -18,7 +18,7 @@ export default defineConfig({
       },
 
       manifest: {
-        name: "Horigine Staffing",
+        name: "Horigine IT Solutions",
         short_name: "Horigine",
         description: "Technology services and technical staffing",
         theme_color: "#10131a",
@@ -27,12 +27,12 @@ export default defineConfig({
         start_url: "/",
         icons: [
           {
-            src: "/pwa-192.png",
+            src: "/images/Favicon.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "/pwa-512.png",
+            src: "/images/Favicon.png",
             sizes: "512x512",
             type: "image/png",
           },

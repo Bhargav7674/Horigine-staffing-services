@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#10131a"/><path d="M14 14h8v14h20V14h8v36h-8V36H22v14h-8z" fill="#00ced1"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Horigine brand icon">
+  <rect width="128" height="128" fill="#000000"/>
+
+  <path d="M26 18c19 0 31 8 38 18v12c0 17-12 30-28 35l-14 5v-9l13-5c11-4 18-12 18-24V42c-5-8-14-12-27-12h-2V18h2z" fill="#3CCAE6"/>
+  <path d="M58 18h12v27c0 13 7 23 20 31l12 8v9l-14-9c-18-11-26-24-26-42V18z" fill="#3CCAE6" opacity="0.9"/>
+
+  <path d="M34 55c13-15 32-23 52-20 11 2 18 8 23 15-15-1-29 4-42 16l-15 13 22 8c13 5 23 16 29 28-19 5-36 0-50-15l-17-20c4-10 10-18 18-25z" fill="#F7B42A"/>
+  <path d="M74 32l23 12-12 3 15 21-18-7 8-17-16-12z" fill="#F7B42A"/>
+
+  <path d="M18 90h26v12H18zm26-12h12v37H44z" fill="#2BB6D4" opacity="0.9"/>
+  <path d="M82 58h12v54H82zm-18 20h38v12H64z" fill="#2BB6D4" opacity="0.8"/>
+</svg>

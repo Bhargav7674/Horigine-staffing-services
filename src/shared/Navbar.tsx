@@ -18,10 +18,10 @@ export default function Navbar() {
         <Link
           to="/"
           className="brand"
-          aria-label="Horigine Staffing home"
+          aria-label="Horigine IT Solutions home"
           onClick={() => setOpen(false)}
         >
-          <img src="/images/horigine-logo.png" alt="Horigine logo" />
+          <img src="/images/horigine-logo.png" alt="Horigine IT Solutions logo" />
         </Link>
         <button
           className="mobile-menu-toggle"
